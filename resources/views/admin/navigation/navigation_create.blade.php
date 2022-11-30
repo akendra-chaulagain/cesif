@@ -173,8 +173,8 @@
             </div>
 
             <div class="form-group col-md-12">
-                <label for="icon_image_caption">Icon Text</label>
-                    <input class="form-control" type="text" id="icon_image_caption" name="icon_image_caption" placeholder="Extra Caption" value="">
+                <label for="icon_image_caption">Posted by:</label>
+                    <input class="form-control" type="text" id="icon_image_caption" name="icon_image_caption" placeholder="Name" value="">
             </div>
 
             <div class="form-group col-md-12">
@@ -183,20 +183,23 @@
             </div>
 
              <div class="form-group col-md-12">
-                <label for="page_title">Date</label>
-                <input class="form-control" type="date" id="page_title" name="page_title" placeholder="Page Title" value="">
-            </div>
-
-            <div id="main_attachment" class="form-group col-md-10">
-                <label for="main_attachment">Main Attachment</label>
-                <input type="file" class="form-control" id="main_attachment" name="main_attachment">
+                <label for="page_title">Posted Month</label>
+                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="">
             </div>
 
            
 
+           
+
             <div class="form-group col-md-12">
-                <label for="page_keyword">Page Keywords</label>
-                <input class="form-control" type="text" id="page_keyword" name="page_keyword" placeholder="Page Keywords" value="">
+                <label for="page_keyword">Posted Date</label>
+                <input class="form-control" type="date" id="page_keyword" name="page_keyword" placeholder="Page Keywords" value="">
+            </div>
+
+
+             <div id="main_attachment" class="form-group col-md-10">
+                <label for="main_attachment">Main Attachment</label>
+                <input type="file" class="form-control" id="main_attachment" name="main_attachment">
             </div>
 
             <div class="form-group col-md-12">

@@ -203,7 +203,7 @@ class HomeController extends Controller
             return view("website.gallery")->with(['photos' => $photos, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
         } elseif ($category_type == "Job") {
             //return "return to view job";
-            return view("website.job-list")->with(['jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
+            return view("website.thematic_details")->with(['jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
         } elseif ($category_type == "Notice") {
             // return "return to view Notice";
             $notices = Navigation::query()->where('parent_page_id', $category_id)->latest()->get();
@@ -331,7 +331,7 @@ class HomeController extends Controller
             $job_category = Navigation::find($subcategory_id);
             $jobs = Navigation::find($subcategory_id)->childs;
 
-            return view("website.job-list")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, "job_category" => $job_category, "jobs" => $jobs]);
+            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, "job_category" => $job_category, "jobs" => $jobs]);
         } elseif ($subcategory_type == "Notice") {
             // return "return to view Notice";
             $notices = Navigation::query()->where('parent_page_id', $subcategory_id)->where('page_type', 'Notice')->latest()->get();
@@ -342,8 +342,10 @@ class HomeController extends Controller
             $normal = Navigation::find($subcategory_id);
             return view("website.normal")->with(["partners" => $partners, 'message' => $message, 'normal' => $normal, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
         } elseif ($subcategory_type == "Group") {
-
-            return view("website.job-list")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
+            $themic_parent = Navigation::find($subcategory_id);
+             $themic_parent_sub = $themic_parent->childs;
+            //  return $themic_parent_sub;
+            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent'=> $themic_parent, 'themic_parent_sub'=> $themic_parent_sub]);
         } else {
             // return redirect("/");
         }

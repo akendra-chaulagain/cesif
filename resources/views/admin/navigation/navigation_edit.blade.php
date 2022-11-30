@@ -245,8 +245,9 @@
             @if(($navigation->parent_page_id) == 26 || ($navigation->id) == 7))
             @else           
             <div class="form-group col-md-12">
-                <label for="icon_image_caption">Icon Text</label>
+                <label for="icon_image_caption"> Posted by: </label>
                     <input class="form-control" type="text" id="icon_image_caption" name="icon_image_caption" placeholder="Extra Caption" value="{{$navigation->icon_image_caption}}">
+                    
             </div>
             @endif
 
@@ -260,8 +261,14 @@
             </div>
 
              <div class="form-group col-md-12">
-                <label for="page_title">Date</label>
-                <input class="form-control" type="date" id="page_title" name="page_title" placeholder="Page Title" value="{{$navigation->page_title}}">
+                <label for="page_title">Posted Month</label>
+                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="{{$navigation->page_title}}">
+                
+            </div>
+
+             <div class="form-group col-md-12">
+                <label for="page_keyword">Posted Date</label>
+                <input class="form-control" type="date" id="page_keyword" name="page_keyword" placeholder="Page Keywords" value="{{$navigation->page_keyword}}">
             </div>
 
             @if($navigation->main_attachment)
@@ -275,18 +282,19 @@
                     <label for="main_attachment">Main Attachment</label>
                     <input type="file" class="form-control" id="main_attachment" name="main_attachment">
                 </div>
-            @else
-                <div id="main_attachment" class="form-group col-md-10">
+
+
+                 <div id="main_attachment" class="form-group col-md-10">
                     <label for="main_attachment">Main Attachment</label>
                     <input type="file" class="form-control" id="main_attachment" name="main_attachment">
                 </div>
+
+            @else
+               
             @endif
 
            
-            <div class="form-group col-md-12">
-                <label for="page_keyword">Page Keywords</label>
-                <input class="form-control" type="text" id="page_keyword" name="page_keyword" placeholder="Page Keywords" value="{{$navigation->page_keyword}}">
-            </div>
+           
             <div class="form-group col-md-12">
                 <label for="page_description">Page Description</label>
                 <textarea class="form-control" type="text" id="page_description" name="page_description" placeholder="Page Description" rows="3" style="resize: none;">{{$navigation->page_description}}</textarea>

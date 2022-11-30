@@ -63,15 +63,15 @@
 
     <link rel="apple-touch-icon" href="/website/img/apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="website/css/bootstrap.css">
-    <link rel="stylesheet" href="website/css/font-awesome.min.css">
-    <link rel="stylesheet" href="website/css/owl.carousel.css">
-    <link rel="stylesheet" href="website/css/owl.theme.css">
-    <link rel="stylesheet" href="website/css/animate.css">
-    <link rel="stylesheet" href="website/css/normalize.css">
-    <link rel="stylesheet" href="website/css/main.css">
-    <link rel="stylesheet" href="website/css/responsive.css">
-    <script src="website/js/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="/website/css/bootstrap.css">
+    <link rel="stylesheet" href="/website/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/website/css/owl.carousel.css">
+    <link rel="stylesheet" href="/website/css/owl.theme.css">
+    <link rel="stylesheet" href="/website/css/animate.css">
+    <link rel="stylesheet" href="/website/css/normalize.css">
+    <link rel="stylesheet" href="/website/css/main.css">
+    <link rel="stylesheet" href="/website/css/responsive.css">
+    <script src="/website/js/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -79,8 +79,9 @@
         <div class="main-nav">
             <div class="container">
                 <div class="col-md-3 col-sm-2 text-center logo">
-                    <a href="index.html">
-                        <img class="img-responsive" src="images/logo.png" alt="logo">
+                    <a href="/">
+                        <img class="img-responsive" src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
+                            alt="logo">
                     </a>
                 </div>
                 <div class="col-md-9 col-sm-10">
@@ -95,51 +96,46 @@
                             </button>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse no-margin no-padding">
+
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-haspopup="true" aria-expanded="false">About Us <span
-                                            class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="about.html">About CESIF</a></li>
-                                        <li><a href="team.html">Our Team</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-haspopup="true" aria-expanded="false">Thematic Areas <span
-                                            class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="thmetic-area-list.html">Domestic Politics & Governanace</a></li>
-                                        <li><a href="thmetic-area-list.html">Federalism</a></li>
-                                        <li><a href="thmetic-area-list.html">International Relation & Foreign
-                                                Affairs</a></li>
-                                        <li><a href="thmetic-area-list.html">National Security & Climate Change</a>
-                                        </li>
-                                        <li><a href="thmetic-area-list.html">Gender,Social Inclusion & Human Rights</a>
-                                        </li>
-                                        <li><a href="thmetic-area-list.html">Economy & Development</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-haspopup="true" aria-expanded="false">Research Outputs <span
-                                            class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="research-output-list.html">News Digest</a></li>
-                                        <li><a href="research-output-list.html">Commentaries</a></li>
-                                        <li><a href="#">Monthly-Analysis</a></li>
-                                        <li><a href="#">Publications</a></li>
-                                        <li><a href="#">Policy Briefs</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="" href="#">Career </a></li>
-                                <li><a class="" href="contact.html">Contact Us </a></li>
+                                <li @if (!isset($slug_detail))  @endif><a href="/">Home</a></li>
+
+                                @foreach ($menus as $menu)
+                                    @php $submenus = $menu->childs; @endphp
+                                    <li class="dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
+                                            class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-haspopup="true" aria-expanded="false"
+                                            @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
+                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}<span
+                                                class="caret"></span></a>
+
+                                        @if ($submenus->count() > 0)
+                                            <ul class="dropdown-menu">
+                                                @foreach ($submenus as $sub)
+                                                    <li>
+
+                                                        <a
+                                                            href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                                <li><a href="/contact">Contact</a></li>
+
+
+
+
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
                     </nav>
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -149,7 +145,6 @@
 
 
     @yield('content')
-
 
 
 
@@ -165,8 +160,11 @@
     <script src="/website/js/owl.carousel.js"></script>
     <script src="/website/js/jquery.countdown.min.js"></script>
     <script src="/website/js/jquery.mixitup.js"></script>
+
+    @yield('custom_js')
     <script src="/website/js/Chart.min.js"></script>
     <script src="/website/js/main.js"></script>
+
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

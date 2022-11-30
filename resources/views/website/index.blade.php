@@ -5,7 +5,10 @@
 
 @section('content')
     @include('website.main_slider')
-     @include('website.home_about_company')
+    @include('website.home_about_company')
+    @include('website.home_monthly_analysis')
+    @include('website.home_commentries')
+
     {{-- @include('website.home_about_company')
     @include('website.home_job_category')
     @include('website.home_message')
