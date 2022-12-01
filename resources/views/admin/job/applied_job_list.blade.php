@@ -37,20 +37,20 @@
                             @endif
                         </div>
                         <!-- <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-default backlink"><i class="fa fa-backward"
-                                                                                          aria-hidden="true"> </i> Back
-                                </button>
-                                <select name="category_id" class="form-select" id="category_id">
-                                    <option value="null" selected>Select Category</option>
-                                    @foreach ($categories as $cat)
+                                    <button type="button" class="btn btn-default backlink"><i class="fa fa-backward"
+                                                                                              aria-hidden="true"> </i> Back
+                                    </button>
+                                    <select name="category_id" class="form-select" id="category_id">
+                                        <option value="null" selected>Select Category</option>
+                                        @foreach ($categories as $cat)
     <option value="/{{ $cat->nav_category }}/{{ $cat->id }}">{{ $cat->caption ?? '' }}</option>
     @endforeach
-                                </select>
-                                <button type="button" class="btn btn-success add"><i class="fa fa-plus"
-                                                                                     aria-hidden="true"></i>Create new job
-                                </button>
+                                    </select>
+                                    <button type="button" class="btn btn-success add"><i class="fa fa-plus"
+                                                                                         aria-hidden="true"></i>Create new job
+                                    </button>
 
-                            </div> -->
+                                </div> -->
 
                     </div> <!-- /.box-header -->
 
@@ -66,7 +66,7 @@
                                     <th>Email</th>
                                     <th>Message</th>
                                     {{-- <th>Resumes</th> --}}
-                                    <th>job title</th>
+                                    <th>Website address</th>
                                     {{-- <th>country</th> --}}
                                     {{-- <th>job detail </th> --}}
                                     <th>Action</th>

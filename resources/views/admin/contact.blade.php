@@ -7,87 +7,83 @@
 @extends('layouts.master')
 
 @push('title')
-  Contact
+    Contact
 @endpush
 
 @section('content')
-    <section id="pageCover" class="row">
-        <img src="images/contactCover.png" alt="" class="pageCover">
-        <div class="row pageTitle">Contact us</div>
-        <div class="row pageBreadcrumbs">
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li class="active">Contact us</li>
-            </ol>
+    <section class="mt-120">
+        <div class="container">
+            <h3 class="h-sep theme-color">Contact <span class="text-ultra-bold blue-color">Us</span></h3>
+            <div class="divider_block clearfix">
+                <hr class="divider first">
+                <hr class="divider subheader_arrow">
+                <hr class="divider last">
+            </div>
         </div>
     </section>
-
-    <section id="contacts" class="row">
+    <section class="mt-25 mb-50 contact-us">
         <div class="container">
+            <p class="fz-16 gray-666">We’d love to hear from you and build out your next dream project. Drop us a line and
+                we’ll get back to you as soon as we can!</p>
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="row m0">
-                        <h3>Get in touch!</h3>
-                        <ul class="list-inline">
-                            <li><i class="fa fa-home"></i> {{ $global_setting->website_full_address }}
-                                {{ $global_setting->address_ne }}</li>
-                            <li><i class="fa fa-phone"></i> <a href="{{ $global_setting->phone }}">{{ $global_setting->phone }}</a> / <a
-                            href="{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a></li>
-                            <li><i class="fa fa-envelope"></i> <a href="{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="row m0 commentForm">
-                        <form action="{{ route('contactstore') }}" method="POST" class="row m0" id="contactForm"
-                            method="post" name="contact" action="contact_process.php" enctype='multipart/form-data'>
-                            @csrf
-                            <div class="col-sm-6 p0 commenterInfoInputs">
-                                <div class="row m0">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Name">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="e-mail">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                        <input type="number" name="number" id="number" class="form-control"
-                                            placeholder="Number">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 p0">
-                                <div class="row m0">
-                                    <div class="input-group">
-                                        <textarea placeholder="Message" name="message" id="message" class="form-control"></textarea>
-                                    </div>
-                                    <button class="btn btn-default" type="submit">send message</button>
-                                </div>
-                            </div>
-                        </form>
-                        <div id="success">
-                            <span class="green textcenter">
-                                <p>Your message was sent successfully! I will be in touch as soon as I can.</p>
-                            </span>
+                <div class="col-md-8 col-sm-8">
+                    <!-- <div class="mt-30" id="message"></div> -->
+                    <form action="{{ route('contactstore') }}" method="POST" id="contactform_forms" class="checkout-form" enctype='multipart/form-data'>
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mt-25"><input id="contact_name" type="text" name="name"
+                                    class="form-control" placeholder="First name"></div>
+                            <div class="col-md-6 mt-25"><input id="contact_email" type="email" name="email"
+                                    class="form-control" placeholder="Email address"></div>
                         </div>
-                        <div id="error">
-                            <span>
-                                <p>Something went wrong, try refreshing and submitting the form again.</p>
-                            </span>
+                        <div class="row">
+                            <div class="col-md-6 mt-25"><input id="contact_phone" type="text" name="number"
+                                    class="form-control" placeholder="Phone"></div>
+                            <div class="col-md-6 mt-25"><input id="contact_website" type="text" name="apply_for"
+                                    class="form-control" placeholder="Your website"></div>
                         </div>
-                    </div>
+                        <textarea id="contact_message" rows="10" name="message" class="mt-25 form-control" placeholder="Write message"></textarea>
+                        <div class="mt-25 submit">
+                            <input type="submit" class="martel text-extra-bold text-uppercase fz-14" value="Send message">
+                        </div>
+                    </form>
+
                 </div>
-                <div class="col-sm-6">
-                    <h3>Find us on Google Map</h3>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14125.46814984318!2d85.31882!3d27.736823!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5720ce5d1932f007!2sBlue%20Ocean%20Overseas!5e0!3m2!1sen!2snp!4v1659003560367!5m2!1sen!2snp"
-                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
+                <div class="col-md-3 col-md-offset-1 col-sm-4 mt-25">
+                    <div class="contact-info clearfix">
+                        <div class="pull-left">
+                            <h5 class="fz-15 theme-color text-bold mb-10">Office Address</h5>
+                            <span class="ubuntu fz-14 gray-777 lh-22">Kumaripati, Kathmandu, Nepal</span>
+                        </div>
+                        <div class="contact-icon pull-right position-r">
+                            <img src="images/office.png" alt="">
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr class="c-border">
+                    </div>
+                    <div class="contact-info clearfix mt-20">
+                        <div class="pull-left">
+                            <h5 class="fz-15 theme-color text-bold mb-10">Phone</h5>
+                            <span class="ubuntu fz-14 gray-777 lh-22">+977 01 5408814 <br>+977 01 5437508, +977 01 5408805
+                            </span>
+                        </div>
+                        <div class="contact-icon pull-right position-r">
+                            <img src="images/phone.png" alt="">
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr class="c-border">
+                    </div>
+                    <div class="contact-info clearfix mt-20">
+                        <div class="pull-left">
+                            <h5 class="fz-15 theme-color text-bold mb-10">E-mail</h5>
+                            <span class="ubuntu fz-14 gray-777 lh-22">info@cesifnepal.org</span>
+                        </div>
+                        <div class="contact-icon pull-right position-r">
+                            <img src="images/mail.png" alt="">
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr class="c-border">
+                    </div>
                 </div>
             </div>
         </div>
