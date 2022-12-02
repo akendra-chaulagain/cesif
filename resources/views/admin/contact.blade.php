@@ -28,23 +28,24 @@
             <div class="row">
                 <div class="col-md-8 col-sm-8">
                     <!-- <div class="mt-30" id="message"></div> -->
-                    <form action="{{ route('contactstore') }}" method="POST" id="contactform_forms" class="checkout-form" enctype='multipart/form-data'>
+                    <form action="{{ route('contactstore') }}" method="POST" id="contactform_forms" class="checkout-form"
+                        enctype='multipart/form-data'>
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mt-25"><input id="contact_name" type="text" name="name"
                                     class="form-control" placeholder="First name"></div>
                             <div class="col-md-6 mt-25"><input id="contact_email" type="email" name="email"
-                                    class="form-control" placeholder="Email address"></div>
+                                    class="form-control" placeholder="Email address" required></div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-25"><input id="contact_phone" type="text" name="number"
                                     class="form-control" placeholder="Phone"></div>
                             <div class="col-md-6 mt-25"><input id="contact_website" type="text" name="apply_for"
-                                    class="form-control" placeholder="Your website"></div>
+                                    class="form-control" placeholder="Your website" required></div>
                         </div>
                         <textarea id="contact_message" rows="10" name="message" class="mt-25 form-control" placeholder="Write message"></textarea>
                         <div class="mt-25 submit">
-                            <input type="submit" class="martel text-extra-bold text-uppercase fz-14" value="Send message">
+                            <input type="submit" class="martel text-extra-bold text-uppercase fz-14" value="Send message" required>
                         </div>
                     </form>
 
@@ -53,10 +54,11 @@
                     <div class="contact-info clearfix">
                         <div class="pull-left">
                             <h5 class="fz-15 theme-color text-bold mb-10">Office Address</h5>
-                            <span class="ubuntu fz-14 gray-777 lh-22">Kumaripati, Kathmandu, Nepal</span>
+                            <span class="ubuntu fz-14 gray-777 lh-22"> {{ $global_setting->website_full_address }}
+                                {{ $global_setting->address_ne }}</span>
                         </div>
                         <div class="contact-icon pull-right position-r">
-                            <img src="images/office.png" alt="">
+                            <img src="/website/images/office.png" alt="">
                         </div>
                         <div class="clearfix"></div>
                         <hr class="c-border">
@@ -64,11 +66,12 @@
                     <div class="contact-info clearfix mt-20">
                         <div class="pull-left">
                             <h5 class="fz-15 theme-color text-bold mb-10">Phone</h5>
-                            <span class="ubuntu fz-14 gray-777 lh-22">+977 01 5408814 <br>+977 01 5437508, +977 01 5408805
+                            <span class="ubuntu fz-14 gray-777 lh-22">{{ $global_setting->phone }}
+                                <br>{{ $global_setting->phone_ne }}
                             </span>
                         </div>
                         <div class="contact-icon pull-right position-r">
-                            <img src="images/phone.png" alt="">
+                            <img src="/website/images/phone.png" alt="">
                         </div>
                         <div class="clearfix"></div>
                         <hr class="c-border">
@@ -76,10 +79,10 @@
                     <div class="contact-info clearfix mt-20">
                         <div class="pull-left">
                             <h5 class="fz-15 theme-color text-bold mb-10">E-mail</h5>
-                            <span class="ubuntu fz-14 gray-777 lh-22">info@cesifnepal.org</span>
+                            <span class="ubuntu fz-14 gray-777 lh-22">{{ $global_setting->site_email }}</span>
                         </div>
                         <div class="contact-icon pull-right position-r">
-                            <img src="images/mail.png" alt="">
+                            <img src="/website/images/mail.png" alt="">
                         </div>
                         <div class="clearfix"></div>
                         <hr class="c-border">

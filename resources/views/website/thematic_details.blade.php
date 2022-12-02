@@ -1,9 +1,9 @@
-{{-- @php
-    $main = App\Models\Navigation::find(2616)->childs;
-@endphp --}}
+@php
+    $date = App\Date::all();
+@endphp
 
 
-
+ 
 
 @extends('layouts.master')
 @push('title')
@@ -21,18 +21,14 @@
                         <div class="input-group">
                             <select name="archive" id="archive">
                                 <option value="0">Archives</option>
+                                @foreach ($date as $mainitem)
+                                    <option val ue="{{ $mainitem->date_yrs_month }}">
+                                        <a href="{{ route('month_data', $mainitem->date_yrs_month) }}">
+                                            {{ $mainitem->date_yrs_month }}
+                                        </a>
 
-                                @foreach ($themic_parent_sub as $themic_parent_sub_item)
-                                    @php
-                                        $main = App\Models\Navigation::find($themic_parent_sub_item->id)->childs;
-                                    @endphp
-                                    @foreach ($main as $mainitem)
-                                        <option  value="{{ $mainitem->page_title }}">
-                                            {{ $mainitem->page_title }}
-                                        </option>
-                                    @endforeach
+                                    </option>
                                 @endforeach
-
                             </select>
                             <div class="input-group-addon gray-777"> <button><i class="fa fa-search"></i></button></div>
                         </div>

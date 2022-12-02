@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Navigation;
 use App\Job;
 use App\Models\NavigationItems;
+use App\Date;
+use App\HomeDates;
 use File;
 
 class NavigationController extends Controller
@@ -51,6 +53,8 @@ class NavigationController extends Controller
 
         ]);
 
+        $page_title = $request['page_title'];
+
         $data = $request->all();
         $data['nav_category'] = $nav_category;
         $request_segment = \Request::segment(4);
@@ -93,6 +97,15 @@ class NavigationController extends Controller
         }
 
         $navigation = Navigation::create($data);
+
+        $date = Date::updateOrCreate(
+            ['date_yrs_month' => $page_title],
+        );
+
+        // $date = HomeDates::updateOrCreate(
+        //     ['home_dates' => $page_title],
+        // );
+
         return redirect('admin/navigation-list/' . $nav_category . $parent_id)->with('success', 'Data Added Succssfully!!');
     }
 
@@ -117,6 +130,8 @@ class NavigationController extends Controller
             'banner_image' => 'mimes:jpeg,png,jpg,gif,svg|max:10240'
 
         ]);
+        $page_title = $request['page_title'];
+
         $request->offsetUnset('_token');
         $request->offsetUnset('_method');
 
@@ -178,6 +193,11 @@ class NavigationController extends Controller
 
         Navigation::where('id', $id)->update($data);
 
+        $date = Date::updateOrCreate(
+            ['date_yrs_month' => $page_title],
+        );
+
+
         $navigationItems = NavigationItems::all();
         NavigationItems::where('navigation_id', $id)->update(['navigation_id' => $id]);
         return redirect('/admin/navigation-list/' . $nav_category . $parent_id)->with('success', 'Data Updated Successfully!!');
@@ -190,6 +210,9 @@ class NavigationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($nav_category, $id)
+
+
+
     {
         $navigation = Navigation::find($id);
         $parent_id = (intval($navigation->parent_page_id) == 0) ? '' : '/' . intval($navigation->parent_page_id);
@@ -222,8 +245,9 @@ class NavigationController extends Controller
             $job->delete();
         }
 
+       
+
         return redirect('admin/navigation-list/' . $nav_category . $parent_id)->with('success', 'Data Deleted Succssfully!!');
-        
     }
 
     public function deleteIconImage($nav_category, $id)

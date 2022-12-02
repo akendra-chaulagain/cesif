@@ -259,7 +259,7 @@ a:hover{
     transition: all .5s ease ;
 }
 .btn-black:hover{
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     color: #fff;
 }
 .btn-green-br{
@@ -281,7 +281,7 @@ a:hover{
     color: #fff;
 }
 .btn-green{
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     line-height: 36px;
     display: inline-block;
     padding: 0 20px;
@@ -297,7 +297,7 @@ a:hover{
 .btn-green:hover{
     background: transparent;
     color: #222;
-    border-color: #5cb85c;
+    border-color: #f37c7a;
 }
 .no-radius{
     border-radius: 0 !important;
@@ -343,7 +343,7 @@ a:hover{
     color: #67ba67 !important;
 }
 .green-5c{
-    color: #5cb85c !important;
+    color: #f37c7a !important;
 }
 .white-bg{
     background-color: #fff !important;
@@ -385,7 +385,7 @@ a:hover{
     background-color: #67ba67 !important;
 }
 .green-5c-bg{
-    background-color: #5cb85c !important;
+    background-color: #f37c7a !important;
 }
 
 .karla {font-family: 'Karla', sans-serif;}
@@ -488,6 +488,9 @@ a:hover{
 }
 .blue-color{
     color: #242f55;
+}
+.theme-color-hover:hover{
+    color: #f37c7a;
 }
 .no-margin{
     margin: 0 !important;
@@ -605,7 +608,129 @@ a:hover{
 .ptb-150{
     padding: 150px 0;
 }
-
+.pb-5{
+    padding-bottom: 5px !important;
+}
+.pb-10{
+    padding-bottom: 10px !important;
+}
+.pb-15{
+    padding-bottom: 15px !important;
+}
+.pb-20{
+    padding-bottom: 20px !important;
+}
+.pb-25{
+    padding-bottom: 25px !important;
+}
+.pb-30{
+    padding-bottom: 30px !important;
+}
+.pb-35{
+    padding-bottom: 35px !important;
+}
+.pb-40{
+    padding-bottom: 40px !important;
+}
+.pb-45{
+    padding-bottom: 45px !important;
+}
+.pb-45{
+    padding-bottom: 45px !important;
+}
+.pb-50{
+    padding-bottom: 50px !important;
+}
+.pb-55{
+    padding-bottom: 55px !important;
+}
+.pb-60{
+    padding-bottom: 60px !important;
+}
+.pb-65{
+    padding-bottom: 65px !important;
+}
+.pb-70{
+    padding-bottom: 70px !important;
+}
+.pb-75{
+    padding-bottom: 75px !important;
+}
+.pb-80{
+    padding-bottom: 80px !important;
+}
+.pb-85{
+    padding-bottom: 85px !important;
+}
+.pb-90{
+    padding-bottom: 90px !important;
+}
+.pb-95{
+    padding-bottom: 95px !important;
+}
+.pb-100{
+    padding-bottom: 100px !important;
+}
+.pt-5{
+    padding-top: 5px !important;
+}
+.pt-10{
+    padding-top: 10px !important;
+}
+.pt-15{
+    padding-top: 15px !important;
+}
+.pt-20{
+    padding-top: 20px !important;
+}
+.pt-25{
+    padding-top: 25px !important;
+}
+.pt-30{
+    padding-top: 30px !important;
+}
+.pt-35{
+    padding-top: 35px !important;
+}
+.pt-40{
+    padding-top: 40px !important;
+}
+.pt-45{
+    padding-top: 45px !important;
+}
+.pt-50{
+    padding-top: 50px !important;
+}
+.pt-55{
+    padding-top: 55px !important;
+}
+.pt-60{
+    padding-top: 60px !important;
+}
+.pt-65{
+    padding-top: 65px !important;
+}
+.pt-70{
+    padding-top: 70px !important;
+}
+.pt-75{
+    padding-top: 75px !important;
+}
+.pt-80{
+    padding-top: 80px !important;
+}
+.pt-85{
+    padding-top: 85px !important;
+}
+.pt-90{
+    padding-top: 90px !important;
+}
+.pt-95{
+    padding-top: 95px !important;
+}
+.pt-100{
+    padding-top: 100px !important;
+}
 /*
  * Row with equal height columns
  * --------------------------------------------------
@@ -681,7 +806,7 @@ a:hover{
    }*/
    .top-nav > li > a:hover,
    .top-social > a:hover{
-        color: #5cb85c;
+        color: #f37c7a;
 
    }
    /*== logo ==*/
@@ -841,7 +966,7 @@ a:hover{
         letter-spacing: 2px;
     }
     .main-slider-content > h3::after {
-        background-color: #5cb85c;
+        background-color: #f37c7a;
         position: absolute;
         bottom: -8px;
         content: " ";
@@ -863,7 +988,7 @@ a:hover{
     }
     .main-slider-content a:hover{
         background-color: #fff;
-        color: #5cb85c;
+        color: #f37c7a;
     }
     .main-slider.owl-theme .owl-controls {
         margin-top: 0;
@@ -990,7 +1115,7 @@ a.btn-prime{
     display: inline-block;
     padding: 0 30px;
     color: #fff;
-    background: #5cb85c;
+    background: #f37c7a;
     border: 1px solid transparent;
 }
 .tri-b{
@@ -1182,7 +1307,7 @@ a.btn-prime:hover{
   float:right;
 }
 .fund-process .tooltip > .tooltip-inner {
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     background-image: linear-gradient(
     -45deg, 
     rgba(255, 255, 255, .2) 25%, 
@@ -1205,7 +1330,7 @@ a.btn-prime:hover{
 .fund-process .popOver + .tooltip > .tooltip-arrow { 
     border-left: 5px solid transparent; 
     border-right: 5px solid transparent; 
-    border-top: 5px solid #5cb85c;
+    border-top: 5px solid #f37c7a;
     bottom: 1px;
 }
 
@@ -1217,8 +1342,8 @@ a.btn-prime:hover{
 }
 .fund-process .progress-bar{
    /* background:rgb(23,44,60);  */
-    background-color: #5cb85c;
-  background-image: linear-gradient(to bottom, #5cb85c, #5cb85c);
+    background-color: #f37c7a;
+  background-image: linear-gradient(to bottom, #f37c7a, #f37c7a);
   position: relative;
   -webkit-transition: width 1.5s ease-in-out;
   transition: width 1.5s ease-in-out;
@@ -1253,7 +1378,7 @@ a.btn-prime:hover{
     right: 0;
     width: 1px;
     height: 14px;
-    background-color: #5cb85c;
+    background-color: #f37c7a;
 }
 
 .fund-details > .detail-goal{
@@ -1296,7 +1421,7 @@ a.btn-prime:hover{
 .p-filter-nav > a:hover, 
 .p-filter-nav > a.active,
 .p-filter-nav > a:focus{
-    color: #5cb85c;
+    color: #f37c7a;
     outline: none;
 }
 .project-img{
@@ -1373,7 +1498,7 @@ a.btn-prime:hover{
 .progress-status .popOver + .tooltip > .tooltip-arrow { 
     border-left: 5px solid transparent; 
     border-right: 5px solid transparent; 
-    border-top: 5px solid #5cb85c;
+    border-top: 5px solid #f37c7a;
     bottom: 1px;
     display: none;
 }
@@ -1386,8 +1511,8 @@ a.btn-prime:hover{
 }
 .progress-status .progress-bar{
    /* background:rgb(23,44,60);  */
-    background-color: #5cb85c;
-  background-image: linear-gradient(to bottom, #5cb85c, #5cb85c);
+    background-color: #f37c7a;
+  background-image: linear-gradient(to bottom, #f37c7a, #f37c7a);
   position: relative;
   -webkit-transition: width 1.5s ease-in-out;
   transition: width 1.5s ease-in-out;
@@ -1422,7 +1547,7 @@ a.btn-prime:hover{
     right: 0;
     width: 1px;
     height: 14px;
-    background-color: #5cb85c;
+    background-color: #f37c7a;
 }
 .project-img:hover .project-details-overlay{
     opacity: 0;
@@ -1446,6 +1571,7 @@ a.btn-prime:hover{
 }
 .staff-member img{
     max-height: 350px;
+    min-height: 350px;
     width: 100%;
     object-fit: cover;
     object-position: top;
@@ -1524,7 +1650,7 @@ a.btn-prime:hover{
     top: -23px;
 }
 .staff-social > li > a:hover{
-    color: #5cb85c;
+    color: #242f55;
 }
 .staff-member:hover .staff-overlay{
     opacity: 0;
@@ -1622,7 +1748,7 @@ a.btn-prime:hover{
 }
  .test-img::before{
     content: "";
-    border-color: transparent transparent #5cb85c #5cb85c;
+    border-color: transparent transparent #f37c7a #f37c7a;
     border-width: 6px 150px;
     border-style: solid;
     position: absolute;
@@ -1746,9 +1872,9 @@ footer form input.form-control{
     border:none;
 }
 footer .input-group-addon{
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     border-radius: 0;
-    border-color: #5cb85c;
+    border-color: #f37c7a;
 }
 .footer-d-v{
     padding: 40px 30px;
@@ -2038,7 +2164,7 @@ hr.ed-divider{
 }
 .tri-links > li{
     position: relative;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     padding-left: 15px;
 }
 .tri-links > li:last-child{
@@ -2046,13 +2172,14 @@ hr.ed-divider{
 }
 .tri-links > li > a{
     font-size: 15px;
-    color: #555;
+    color: #242f55;
 }
 .tri-links > li > a > i{
     font-size: 16px;
     line-height: 18px;
     margin-right: 10px;
     position: absolute;
+    color: #f37c7a;
     left: 0;
 }
 .tri-links > li > a > span{
@@ -2066,10 +2193,10 @@ hr.ed-divider{
     transition: all .5s ease ;
 }
 .tri-links > li > a:hover{
-    color: #5cb85c;
+    color: #f37c7a;
 }
 .tri-links > li > a:hover span{
-    color: #5cb85c;
+    color: #f37c7a;
 }
 .s-post-detail {
     margin-left: 20px;
@@ -2098,14 +2225,14 @@ hr.ed-divider{
     color: #777;
 }
 .tag-clouds > a:hover{
-    color: #5cb85c;
-    border-color: #5cb85c;
+    color: #f37c7a;
+    border-color: #f37c7a;
 }
 .blog-post-img{
     position: relative;
 }
 .blog-post-img > img{
-    width: 100%;
+    width: auto;
 }
 .blog-post-date{
     position: absolute;
@@ -2118,9 +2245,37 @@ hr.ed-divider{
     padding: 0 8px;
 }
 .blog-post-date span{
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     line-height: 35px;
     padding: 6px 22px;
+}
+.detail-page .blog-post-details h6{
+    margin-bottom: 10px;
+}
+.detail-page .blog-post-details p{
+    font-size: 16px;
+    line-height: 28px;
+    color: #525252;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.detail-page .blog-post-details p a{
+    color: #f37c7a;
+}
+.detail-page .box-shadow{
+    padding: 20px;
+}
+.detail-page .blog-post-details  ul{
+    list-style: disc;
+    padding-left: 20px;
+}
+.detail-page .blog-post-details  ul li{
+    font-family: 'Mukta', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    color: #525252;
+    text-align: justify;
+    margin-bottom: 5px;
 }
 /* ========================================================================== 
    RECENT PUBLICATION
@@ -2351,7 +2506,7 @@ hr.ed-divider{
 }
 p.quote{
     padding: 15px 30px;
-    border-left: 4px solid #5cb85c;
+    border-left: 4px solid #f37c7a;
     margin-left: 40px;
 }
 .bookmarks > ul{
@@ -2387,8 +2542,8 @@ p.quote{
     margin-right: 0;
 }
 .blog-single-share  a:hover{
-    background-color: #5cb85c;
-    border-color: #5cb85c;
+    background-color: #f37c7a;
+    border-color: #f37c7a;
     color: #fff;
 }
 .author-info{
@@ -2413,7 +2568,7 @@ p.quote{
     font-size: 16px;
 }
 .author-social > a:hover{
-    color: #5cb85c;
+    color: #f37c7a;
 }
 .comment{
     padding: 30px 25px;
@@ -2428,7 +2583,7 @@ p.quote{
     float: right;
 }
 .comment-data a{
-    color: #5cb85c;
+    color: #f37c7a;
 }
 .comment-data a > i{
     margin-right: 6px;
@@ -2489,7 +2644,7 @@ p.quote{
 }
 .leave-comment .submit > a{
     color: #fff;
-    background-color: #5cb85c;
+    background-color: #f37c7a;
     line-height: 40px;
     padding: 2px 20px 0;
     display: inline-block;
@@ -2498,7 +2653,7 @@ p.quote{
 .leave-comment .submit > a:hover{
     color: #222;
     background-color: transparent;
-    border-color: #5cb85c;
+    border-color: #f37c7a;
 }
 /* ========================================================================== 
    Gallery
@@ -2587,8 +2742,8 @@ p.quote{
     transform: scale(1) ;
 }
 .gallery-item:hover > h5{
-    color: #5cb85c;
-    border-color: #5cb85c;
+    color: #f37c7a;
+    border-color: #f37c7a;
 }
 /* ========================================================================== 
    404 Page

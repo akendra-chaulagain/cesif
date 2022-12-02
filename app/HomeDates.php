@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Date extends Model
+class HomeDates extends Model
 {
     protected $fillable = [
-        'date_yrs_month',
+        'home_dates',
     ];
-
-    //
 }

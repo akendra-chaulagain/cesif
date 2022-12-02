@@ -60,7 +60,7 @@
 
 
 
-
+    
     <link rel="apple-touch-icon" href="/website/img/apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="/website/css/bootstrap.css">
@@ -78,13 +78,13 @@
     <header>
         <div class="main-nav">
             <div class="container">
-                <div class="col-md-3 col-sm-2 text-center logo">
+                <div class="col-md-3 col-sm-3 text-center logo">
                     <a href="/">
                         <img class="img-responsive" src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
                             alt="logo">
                     </a>
                 </div>
-                <div class="col-md-9 col-sm-10">
+                <div class="col-md-9 col-sm-9">
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -103,8 +103,9 @@
                                 @foreach ($menus as $menu)
                                     @php $submenus = $menu->childs; @endphp
                                     <li class="dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
-                                            class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                            aria-haspopup="true" aria-expanded="false"
+                                            class="dropdown-toggle"
+                                            @if ($menu->nav_name == "career") @else data-toggle="dropdown" @endif
+                                            role="button" aria-haspopup="true" aria-expanded="false"
                                             @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
                                     {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}<span
                                                 class="caret"></span></a>

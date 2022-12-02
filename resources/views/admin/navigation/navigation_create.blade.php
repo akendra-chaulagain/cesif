@@ -184,7 +184,7 @@
 
              <div class="form-group col-md-12">
                 <label for="page_title">Posted Month</label>
-                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="">
+                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="" required>
             </div>
 
            

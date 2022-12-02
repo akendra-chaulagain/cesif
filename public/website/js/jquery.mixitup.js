@@ -27,102 +27,96 @@
 		self._execAction('_constructor', 0);
 		
 		$.extend(self, {
-			
-			/* Public Properties
+      /* Public Properties
 			---------------------------------------------------------------------- */
-			
-			selectors: {
-				target: '.mix',
-				filter: '.filter',
-				sort: '.sort'
-			},
-				
-			animation: {
-				enable: true,
-				effects: 'fade scale',
-				duration: 600,
-				easing: 'ease',
-				perspectiveDistance: '3000',
-				perspectiveOrigin: '50% 50%',
-				queue: true,
-				queueLimit: 1,
-				animateChangeLayout: false,
-				animateResizeContainer: true,
-				animateResizeTargets: false,
-				staggerSequence: false,
-				reverseOut: false
-			},
-				
-			callbacks: {
-				onMixLoad: false,
-				onMixStart: false,
-				onMixBusy: false,
-				onMixEnd: false,
-				onMixFail: false,
-				_user: false
-			},
-				
-			controls: {
-				enable: true,
-				live: false,
-				toggleFilterButtons: false,
-				toggleLogic: 'or',
-				activeClass: 'active'
-			},
 
-			layout: {
-				display: 'inline-block',
-				containerClass: '',
-				containerClassFail: 'fail'
-			},
-			load: {
-				filter: '.first-row',
-				sort: false
-			},
+      selectors: {
+        target: ".mix",
+        filter: ".filter",
+        sort: ".sort",
+      },
 
-			load: {
-				filter: '.first-month',
-				sort: false
-			},
-			/* Private Properties
+      animation: {
+        enable: true,
+        effects: "fade scale",
+        duration: 600,
+        easing: "ease",
+        perspectiveDistance: "3000",
+        perspectiveOrigin: "50% 50%",
+        queue: true,
+        queueLimit: 1,
+        animateChangeLayout: false,
+        animateResizeContainer: true,
+        animateResizeTargets: false,
+        staggerSequence: false,
+        reverseOut: false,
+      },
+
+      callbacks: {
+        onMixLoad: false,
+        onMixStart: false,
+        onMixBusy: false,
+        onMixEnd: false,
+        onMixFail: false,
+        _user: false,
+      },
+
+      controls: {
+        enable: true,
+        live: false,
+        toggleFilterButtons: false,
+        toggleLogic: "or",
+        activeClass: "active",
+      },
+
+      layout: {
+        display: "inline-block",
+        containerClass: "",
+        containerClassFail: "fail",
+      },
+      load: {
+        filter: ".mix:first-child",
+        sort: false,
+      },
+      /* Private Properties
 			---------------------------------------------------------------------- */
-				
-			_$body: null,
-			_$container: null,
-			_$targets: null,
-			_$parent: null,
-			_$sortButtons: null,
-			_$filterButtons: null,
-		
-			_suckMode: false,
-			_mixing: false,
-			_sorting: false,
-			_clicking: false,
-			_loading: true,
-			_changingLayout: false,
-			_changingClass: false,
-			_changingDisplay: false,
-			
-			_origOrder: [],
-			_startOrder: [],
-			_newOrder: [],
-			_activeFilter: null,
-			_toggleArray: [],
-			_toggleString: '',
-			_activeSort: 'default:asc',
-			_newSort: null,
-			_startHeight: null,
-			_newHeight: null,
-			_incPadding: true,
-			_newDisplay: null,
-			_newClass: null,
-			_targetsBound: 0,
-			_targetsDone: 0,
-			_queue: [],
-				
-			_$show: $(),
-			_$hide: $()
-		});
+
+      _$body: null,
+      _$container: null,
+      _$targets: null,
+      _$parent: null,
+      _$sortButtons: null,
+      _$filterButtons: null,
+
+      _suckMode: false,
+      _mixing: false,
+      _sorting: false,
+      _clicking: false,
+      _loading: true,
+      _changingLayout: false,
+      _changingClass: false,
+      _changingDisplay: false,
+
+      _origOrder: [],
+      _startOrder: [],
+      _newOrder: [],
+      _activeFilter: null,
+      _toggleArray: [],
+      _toggleString: "",
+      _activeSort: "default:asc",
+      _newSort: null,
+      _startHeight: null,
+      _newHeight: null,
+      _incPadding: true,
+      _newDisplay: null,
+      _newClass: null,
+      _targetsBound: 0,
+      _targetsDone: 0,
+      _queue: [],
+
+      _$show: $(),
+      _$hide: $(),
+    });
 	
 		self._execAction('_constructor', 1);
 	};
