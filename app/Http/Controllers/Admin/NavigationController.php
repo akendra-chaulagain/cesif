@@ -215,6 +215,16 @@ class NavigationController extends Controller
 
     {
         $navigation = Navigation::find($id);
+        $page_title = strval($navigation->page_title);
+
+        // strval( $variable ) 
+        $date = Date::all()->where('date_yrs_month', $page_title)->first();
+        // return $date;
+        if ($date) {
+            $date->delete();
+        }
+        // return gettype($page_title);
+
         $parent_id = (intval($navigation->parent_page_id) == 0) ? '' : '/' . intval($navigation->parent_page_id);
 
         if (file_exists(public_path('uploads/icon_image/' . $navigation->icon_image))) {
@@ -245,7 +255,7 @@ class NavigationController extends Controller
             $job->delete();
         }
 
-       
+
 
         return redirect('admin/navigation-list/' . $nav_category . $parent_id)->with('success', 'Data Deleted Succssfully!!');
     }

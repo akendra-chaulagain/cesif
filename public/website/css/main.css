@@ -3084,3 +3084,8 @@ p.quote{
         page-break-after: avoid;
     }
 }
+
+.blog-post-details h1,h2,h3,h4,h5,h6{
+    color: #f37c7a;
+    padding: 10px 0px 10px 0px;
+}

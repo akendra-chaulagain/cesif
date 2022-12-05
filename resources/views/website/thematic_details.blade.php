@@ -3,8 +3,6 @@
 @endphp
 
 
- 
-
 @extends('layouts.master')
 @push('title')
     {{ $themic_parent->caption }}
@@ -19,15 +17,20 @@
                 <div class="col-md-3">
                     <div class="s-archive">
                         <div class="input-group">
-                            <select name="archive" id="archive">
+                            <select name="archive" id="archive" onchange="javascript:handleSelect(this)">
                                 <option value="0">Archives</option>
                                 @foreach ($date as $mainitem)
-                                    <option val ue="{{ $mainitem->date_yrs_month }}">
-                                        <a href="{{ route('month_data', $mainitem->date_yrs_month) }}">
+                                    <option value=" {{ $mainitem->date_yrs_month }}">
+                                        <a target="_blank" href="{{ route('month_data', $mainitem->date_yrs_month) }}">
                                             {{ $mainitem->date_yrs_month }}
                                         </a>
 
                                     </option>
+                                    <script type="text/javascript">
+                                        function handleSelect(elm) {
+                                            window.location = elm.value;
+                                        }
+                                    </script>
                                 @endforeach
                             </select>
                             <div class="input-group-addon gray-777"> <button><i class="fa fa-search"></i></button></div>
@@ -63,7 +66,7 @@
                         $main = App\Models\Navigation::find($themic_parent_sub_item->id)->childs;
                     @endphp
 
-                    <div class="row   mix {{ $themic_parent_sub_item->id }}">
+                    <div class="row  mix {{ $themic_parent_sub_item->id }}">
 
                         @foreach ($main as $mainitem)
                             <div class="col-md-4 r-event mt-25">

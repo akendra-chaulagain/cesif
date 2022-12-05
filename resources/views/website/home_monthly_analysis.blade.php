@@ -14,6 +14,7 @@
                         Analysis</span> </h3>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="monthly-analysis-slider mt-30">
