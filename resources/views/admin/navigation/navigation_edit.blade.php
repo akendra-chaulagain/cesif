@@ -226,22 +226,22 @@
             <!--</div>-->
                                                            
 
-            <div class="form-group col-md-12">
+            {{-- <div class="form-group col-md-12">
                 <label for="img_file">Icon Image </label> 
                     @if($navigation->icon_image)              
                     <img src="{{asset('uploads/icon_image/'.$navigation->icon_image)}}" alt="" height="150" width="100%">                    
                     <a href="/admin/navigation-edit/{{$nav_category}}/{{$navigation->id}}" onclick="return confirm('Are you sure to delete')" style="color: red">Remove Icon Image</a>
                     @endif
                     <input  type="file" class="form-control"  id="img_file" name="icon_image">                    
-            </div>
-            <div class="form-group col-md-12">
+            </div> --}}
+            {{-- <div class="form-group col-md-12">
                 <label for="img_file">Featured Image </label> 
                     @if($navigation->featured_image)              
                     <img src="{{asset('uploads/featured_image/'.$navigation->featured_image)}}" alt="" height="150" width="100%">                    
                     <a href="/admin/navigation-edit/{{$nav_category}}/{{$navigation->id}}/deleteimage2" onclick="return confirm('Are you sure to delete')" style="color: red">Remove Featured Image</a>
                     @endif
                     <input  type="file" class="form-control"  id="img_file" name="featured_image">                    
-            </div> 
+            </div>  --}}
             @if(($navigation->parent_page_id) == 26 || ($navigation->id) == 7))
             @else           
             <div class="form-group col-md-12">
@@ -262,7 +262,7 @@
 
              <div class="form-group col-md-12">
                 <label for="page_title">Posted Month</label>
-                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="{{$navigation->page_title}}">
+                <input class="form-control" type="month" id="page_title" name="page_title" placeholder="Page Title" value="{{$navigation->page_title}}" required>
                 
             </div>
 
@@ -295,10 +295,10 @@
 
            
            
-            <div class="form-group col-md-12">
+            {{-- <div class="form-group col-md-12">
                 <label for="page_description">Page Description</label>
                 <textarea class="form-control" type="text" id="page_description" name="page_description" placeholder="Page Description" rows="3" style="resize: none;">{{$navigation->page_description}}</textarea>
-            </div>
+            </div> --}}
             <div class="form-group col-md-12">
                 <label for="is_active">Navigation Status <i class="reqr">*</i></label>
                 <select class="form-control" id="is_active" name="nav_status">

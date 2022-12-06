@@ -162,15 +162,15 @@
             <!--</div>-->
                                                            
 
-            <div class="form-group col-md-12">
+            {{-- <div class="form-group col-md-12">
                 <label for="icon_image">Icon Image </label>
                     <input  type="file" class="form-control"  id="icon_image" name="icon_image">
-            </div>
+            </div> --}}
 
-            <div class="form-group col-md-12">
+            {{-- <div class="form-group col-md-12">
                 <label for="featured_image">Featured Image </label>
                     <input  type="file" class="form-control"  id="featured_image" name="featured_image">
-            </div>
+            </div> --}}
 
             <div class="form-group col-md-12">
                 <label for="icon_image_caption">Posted by:</label>
@@ -202,10 +202,10 @@
                 <input type="file" class="form-control" id="main_attachment" name="main_attachment">
             </div>
 
-            <div class="form-group col-md-12">
+            {{-- <div class="form-group col-md-12">
                 <label for="page_description">Page Description</label>
                 <textarea class="form-control" type="text" id="page_description" name="page_description" placeholder="Page Description" rows="3" style="resize: none;"></textarea>
-            </div>
+            </div> --}}
 
             <div class="form-group col-md-12">
                 <label for="is_active">Navigation Status <i class="reqr">*</i></label>

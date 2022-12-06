@@ -53,7 +53,7 @@ class HomeController extends Controller
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%monthly-analysis%")->where('page_type', 'Group')->latest()->first() != null) {
             $monthly_analysis_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%monthly-analysis%")->where('page_type', 'Group')->latest()->first()->id;
             $monthly_analysis = Navigation::query()->where('parent_page_id', $monthly_analysis_id)->latest()->get();
-            // return $monthly_analysis->first()->childs;
+            // return $monthly_analysis;
         } else {
             $monthly_analysis = null;
         }
@@ -273,6 +273,32 @@ class HomeController extends Controller
         } else {
             $partners = null;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%slider%")->where('page_type', 'Group')->latest()->first() != null) {
             $slider_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%slider%")->where('page_type', 'Group')->latest()->first()->id;
             $sliders = Navigation::query()->where('parent_page_id', $slider_id)->latest()->get();
@@ -363,8 +389,14 @@ class HomeController extends Controller
             $normal = Navigation::find($subcategory_id);
             $normal_sub = $normal->childs;
             return view("website.normal")->with(["partners" => $partners, 'message' => $message, 'normal' => $normal, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'normal_sub' => $normal_sub]);
-        } elseif ($subcategory_type == "Group") {
 
+         } elseif ($subcategory_type == "Publication") {
+            $publication_parent = Navigation::find($subcategory_id);
+            $publication_parent_sub = $publication_parent->childs;
+            //  return $publication_parent_sub;
+            return view("website.all-publication")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'publication_parent' => $publication_parent, 'publication_parent_sub' => $publication_parent_sub]);
+
+        } elseif ($subcategory_type == "Group") {
             $themic_parent = Navigation::find($subcategory_id);
             $themic_parent_sub = $themic_parent->childs;
             //  return $themic_parent_sub;
@@ -415,7 +447,9 @@ class HomeController extends Controller
 
     public function get_all_Acc_date($slug)
     {
-        $dates = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main');
+        $dates = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main')->where('page_type', '!=', 'Group')->where('page_type', '!=', 'Normal');
+        // return $dates;
+
 
         $dates_title = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main')->first();
         // return $dates_title;

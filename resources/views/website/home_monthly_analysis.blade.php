@@ -27,8 +27,8 @@
         </div>
         <div id="Container" class="mt-25">
             @foreach ($monthly_analysis as $monthly_analysisitem)
-                @foreach ($monthly_analysisitem->childs as $item)
-                    <div class="row mix {{ $item->page_title }}">
+                <div class="row mix {{ $monthly_analysisitem->page_title }}">
+                    @foreach ($monthly_analysisitem->childs as $item)
                         <div class="col-md-4 col-sm-6">
                             <div class="monthly-analysis-item">
                                 <a href="{{ route('single_career', $item->nav_name) }}"></a>
@@ -39,13 +39,11 @@
                                 </div>
                             </div>
                         </div>
-                @endforeach
+                    @endforeach
+                </div>
+            @endforeach
 
 
         </div>
-        @endforeach
-
-
     </div>
-</div>
 </div>

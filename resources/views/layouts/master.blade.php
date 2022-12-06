@@ -60,7 +60,7 @@
 
 
 
-    
+
     <link rel="apple-touch-icon" href="/website/img/apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="/website/css/bootstrap.css">
@@ -104,7 +104,7 @@
                                     @php $submenus = $menu->childs; @endphp
                                     <li class="dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
                                             class="dropdown-toggle"
-                                            @if ($menu->nav_name == "career") @else data-toggle="dropdown" @endif
+                                            @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
                                             role="button" aria-haspopup="true" aria-expanded="false"
                                             @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
                                     {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}<span

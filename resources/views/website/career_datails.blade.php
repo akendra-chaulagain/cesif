@@ -51,7 +51,8 @@
                             <li><a href="#"><i class="fa fa-caret-right"></i> Economy & Development</a></li>
                         </ul>
                         <div class="mt-25 news-event">
-                            <h5 class="theme-color mb-25 h-sep">Other <span class="text-ultra-bold blue-color"></span>
+                            <h5 class="theme-color mb-25 h-sep">Related <span
+                                    class="text-ultra-bold blue-color">Posts</span>
                             </h5>
                             @foreach ($carrer as $carrer_item)
                                 <div class="s-post mb-20 pb-20 clearfix">
@@ -62,8 +63,10 @@
                                             <h6 class="fz-13 black-23 lh-20 mb-10">
                                                 {!! Str::limit($carrer_item->caption, 40) !!}
                                             </h6>
-                                            <span class="ubuntu fz-13 theme-color"><i class="fa fa-calendar"></i>
-                                                {{ $carrer_item->page_keyword }}</span>
+                                            @if ($carrer_item->page_keyword)
+                                                <span class="ubuntu fz-13 theme-color"><i class="fa fa-calendar"></i>
+                                                {{ $carrer_item->page_keyword }}</span @else @endif
+
                                         </div>
                                     </a>
                                 </div>
