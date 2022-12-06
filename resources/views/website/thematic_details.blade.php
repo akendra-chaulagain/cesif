@@ -18,21 +18,23 @@
                     <div class="s-archive">
                         <div class="input-group">
                             <select name="archive" id="archive" onchange="javascript:handleSelect(this)">
-                                <option value="0">Archives</option>
+                                <option value="#">Archives</option>
                                 @foreach ($date as $mainitem)
-                                    <option value=" {{ $mainitem->date_yrs_month }}">
-                                        <a target="_blank" href="{{ route('month_data', $mainitem->date_yrs_month) }}">
-                                            {{ $mainitem->date_yrs_month }}
-                                        </a>
+                                    <option value="{{ $mainitem->date_yrs_month }}">
+
+                                        {{ $mainitem->date_yrs_month }}
 
                                     </option>
-                                    <script type="text/javascript">
-                                        function handleSelect(elm) {
-                                            window.location = elm.value;
-                                        }
-                                    </script>
                                 @endforeach
                             </select>
+                            {{-- js to make option tag clickable --}}
+                            {{-- <a href="{{ route('single_career', $item->nav_name) }}"></a> --}}
+                            <script type="text/javascript">
+                                function handleSelect(elm) {
+                                    window.location = "/all-data/" + elm.value;
+                                }
+                            </script>
+
                             <div class="input-group-addon gray-777"> <button><i class="fa fa-search"></i></button></div>
                         </div>
                     </div>
@@ -65,9 +67,7 @@
                     @php
                         $main = App\Models\Navigation::find($themic_parent_sub_item->id)->childs;
                     @endphp
-
                     <div class="row  mix {{ $themic_parent_sub_item->id }}">
-
                         @foreach ($main as $mainitem)
                             <div class="col-md-4 r-event mt-25">
                                 <img src="{{ $mainitem->banner_image }}" alt="" class="img-responsive">
