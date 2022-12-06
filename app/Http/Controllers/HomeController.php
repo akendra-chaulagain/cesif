@@ -415,7 +415,11 @@ class HomeController extends Controller
 
     public function get_all_Acc_date($slug)
     {
-        $dates = Navigation::all()->where('page_title', $slug);
+        $dates = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main');
+
+        $dates_title = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main')->first();
+        // return $dates_title;
+
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
             $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
             $partners = Navigation::query()->where('parent_page_id', $partners_id)->latest()->get();
@@ -425,7 +429,7 @@ class HomeController extends Controller
         }
         $global_setting = GlobalSetting::all()->first();
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
-        return view("website.all_data_acc_date")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "dates"=> $dates]);
+        return view("website.all_data_acc_date")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "dates" => $dates, 'dates_title' => $dates_title]);
     }
 
 

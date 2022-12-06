@@ -55,11 +55,13 @@
                             </h5>
                             @foreach ($carrer as $carrer_item)
                                 <div class="s-post mb-20 pb-20 clearfix">
-                                    <a href="#">
+                                    <a <a href="{{ route('single_career', $carrer_item->nav_name) }}">
                                         <img src="{{ $carrer_item->banner_image }}" alt=""
                                             class="pull-left img-responsive">
                                         <div class="pull-left s-post-detail">
-                                            <h6 class="fz-13 black-23 lh-20 mb-10">{{ $carrer_item->caption }}</h6>
+                                            <h6 class="fz-13 black-23 lh-20 mb-10">
+                                                {!! Str::limit($carrer_item->caption, 40) !!}
+                                            </h6>
                                             <span class="ubuntu fz-13 theme-color"><i class="fa fa-calendar"></i>
                                                 {{ $carrer_item->page_keyword }}</span>
                                         </div>

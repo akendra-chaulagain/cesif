@@ -74,12 +74,18 @@
                                 <h4 class="mt-20 fz-15 text-semi-bold d-black">{{ $mainitem->caption }}</h4>
                                 <h5 class="ubuntu fz-12 theme-color mt-10 r-divider">Date: <span class="blue-color">
                                         {{ $mainitem->page_keyword }}
-                                    </span> <span class="sep-space">
-                                        |</span> Posted by: <span
-                                        class="blue-color">{{ $mainitem->icon_image_caption }}</span></h5>
-                                <p class="lh-26 mt-20">{!! $mainitem->short_content !!}</p>
+                                    </span>
+
+                                    @if ($mainitem->icon_image_caption)
+                                        <span class="sep-space"> |</span> Posted by: <span
+                                            class="blue-color">{{ $mainitem->icon_image_caption }}</span>
+                                    @else
+                                    @endif
+                                </h5>
+                                <p class="lh-26 mt-20">{!! Str::limit($mainitem->short_content, 130) !!}</p>
                                 <div class="mt-20">
-                                    <a href="#" class="btn-green-br">Read More</a>
+                                    <a href="{{ route('single_career', $mainitem->nav_name) }}" class="btn-green-br">Read
+                                        More</a>
                                 </div>
                             </div>
                         @endforeach
