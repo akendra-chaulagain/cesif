@@ -36,6 +36,10 @@
                         {!! $career_details->long_content !!}
                     </div>
                 </div>
+
+
+
+
                 <div class="col-md-3">
                     <div class="sidebar-main box-shadow">
                         <h5 class="theme-color h-sep">Thematic <span class="text-ultra-bold blue-color">Areas</span> </h5>
@@ -54,23 +58,29 @@
                             <h5 class="theme-color mb-25 h-sep">Related <span
                                     class="text-ultra-bold blue-color">Posts</span>
                             </h5>
+
                             @foreach ($carrer as $carrer_item)
                                 <div class="s-post mb-20 pb-20 clearfix">
-                                    <a <a href="{{ route('single_career', $carrer_item->nav_name) }}">
+                                    <a href="{{ route('single_career', $carrer_item->nav_name) }}">
                                         <img src="{{ $carrer_item->banner_image }}" alt=""
                                             class="pull-left img-responsive">
                                         <div class="pull-left s-post-detail">
-                                            <h6 class="fz-13 black-23 lh-20 mb-10">
-                                                {!! Str::limit($carrer_item->caption, 40) !!}
-                                            </h6>
-                                            @if ($carrer_item->page_keyword)
-                                                <span class="ubuntu fz-13 theme-color"><i class="fa fa-calendar"></i>
-                                                {{ $carrer_item->page_keyword }}</span @else @endif
+                                            <h6 class="fz-13 black-23 lh-20 mb-10">{!! Str::limit($carrer_item->caption, 40) !!}</h6>
+                                            <span class="ubuntu fz-13 theme-color">
+                                                @if ($carrer_item->page_keyword)
+                                                    <i class="fa fa-calendar"></i> {{ $carrer_item->page_keyword }}
+                                                @else
+                                                @endif
+
+
+                                            </span>
+
 
                                         </div>
                                     </a>
                                 </div>
                             @endforeach
+
 
 
                         </div>

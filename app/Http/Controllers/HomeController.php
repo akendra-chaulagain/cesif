@@ -389,13 +389,11 @@ class HomeController extends Controller
             $normal = Navigation::find($subcategory_id);
             $normal_sub = $normal->childs;
             return view("website.normal")->with(["partners" => $partners, 'message' => $message, 'normal' => $normal, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'normal_sub' => $normal_sub]);
-
-         } elseif ($subcategory_type == "Publication") {
+        } elseif ($subcategory_type == "Publication") {
             $publication_parent = Navigation::find($subcategory_id);
             $publication_parent_sub = $publication_parent->childs;
             //  return $publication_parent_sub;
             return view("website.all-publication")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'publication_parent' => $publication_parent, 'publication_parent_sub' => $publication_parent_sub]);
-
         } elseif ($subcategory_type == "Group") {
             $themic_parent = Navigation::find($subcategory_id);
             $themic_parent_sub = $themic_parent->childs;
@@ -447,7 +445,7 @@ class HomeController extends Controller
 
     public function get_all_Acc_date($slug)
     {
-        $dates = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main')->where('page_type', '!=', 'Group')->where('page_type', '!=', 'Normal');
+        $dates = Navigation::where('page_title', $slug)->where('nav_category', 'Main')->where('page_type', '!=', 'Group')->where('page_type', '!=', 'Normal')->where('page_type', '!=', 'Publication')->paginate(12);
         // return $dates;
 
 

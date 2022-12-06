@@ -81,8 +81,59 @@
 
             </div>
             <div class="bp-btns mt-50 text-center">
-                <a href="#"><i class="fa fa-caret-left"></i> Previous</a>
-                <a href="#">Next <i class="fa fa-caret-right"></i></a>
+                {{-- <a href="#"><i class="fa fa-caret-left"></i> Previous</a>
+                <a href="#">Next <i class="fa fa-caret-right"></i></a> --}}
+
+
+                {{-- {{ $dates->links() }} --}}
+
+                @if ($dates->hasPages())
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                            @if ($dates->onFirstPage())
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1"><i class="fa fa-caret-left"></i>
+                                        Previous</a>
+                                </li>
+                            @else
+                                <li class="page-item"><a class="page-link" href="{{ $dates->previousPageUrl() }}"><i
+                                            class="fa fa-caret-left"></i> Previous</a></li>
+                            @endif
+
+                            @foreach ($dates as $element)
+                                @if (is_string($element))
+                                    <li class="page-item disabled">{{ $element }}</li>
+                                @endif
+                                @if (is_array($element))
+                                    @foreach ($element as $page => $url)
+                                        @if ($page == $dates->currentPage())
+                                            <li class="page-item active">
+                                                <a class="page-link">{{ $page }}</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
+
+                            @if ($dates->hasMorePages())
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $dates->nextPageUrl() }}" rel="next">Next <i
+                                            class="fa fa-caret-right"></i></a>
+                                </li>
+                            @else
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">Next <i class="fa fa-caret-right"></i></a>
+                                </li>
+                            @endif
+                        </ul>
+                @endif
+
+
+
             </div>
         </div>
     </section>

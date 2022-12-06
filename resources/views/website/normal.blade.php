@@ -18,6 +18,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    @if ($normal->banner_image)
+                        <img src="{{ $normal->banner_image }}" alt="banner_image">
+                    @else
+                    @endif
+
                     <h4 class="d-black lh-33 h-sep">{!! $normal->short_content !!}</h4>
                     <p class="lh-24 fz-16">{!! $normal->long_content !!}</p>
                 </div>
@@ -25,7 +30,6 @@
                     <div class="panel-group" id="accordion">
 
                         @foreach ($normal_sub as $normal_sub_item)
-                        
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title clearfix"> <a class="fz-16 d-black" data-toggle="collapse"
