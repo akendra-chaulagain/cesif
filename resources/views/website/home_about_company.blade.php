@@ -18,56 +18,34 @@
                     <div class="row mt-50">
                         <div class="col-md-12">
                             <div class="publication-slider">
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="monthly-img text-center">
-                                            <img src="/website/images/default-publication.jpg" alt=""
-                                                class="img-responsive">
-                                            <h5 class="martel text-semi-bold d-black mt-10">January Monthly Analysis
-                                                Report</h5>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="monthly-img text-center">
-                                            <img src="/website/images/default-publication.jpg" alt=""
-                                                class="img-responsive">
-                                            <h5 class="martel text-semi-bold d-black mt-10">January Monthly Analysis
-                                                Report</h5>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="monthly-img text-center">
-                                            <img src="/website/images/default-publication.jpg" alt=""
-                                                class="img-responsive">
-                                            <h5 class="martel text-semi-bold d-black mt-10">January Monthly Analysis
-                                                Report</h5>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="monthly-img text-center">
-                                            <img src="/website/images/default-publication.jpg" alt=""
-                                                class="img-responsive">
-                                            <h5 class="martel text-semi-bold d-black mt-10">January Monthly Analysis
-                                                Report</h5>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="monthly-img text-center">
-                                            <img src="/website/images/default-publication.jpg" alt=""
-                                                class="img-responsive">
-                                            <h5 class="martel text-semi-bold d-black mt-10">January Monthly Analysis
-                                                Report</h5>
-                                        </div>
-                                    </a>
-                                </div>
+                                @foreach ($home_publication as $home_publication_item)
+                                    <div class="item">
+                                        <a href="{{ route('single_career', $home_publication_item->nav_name) }}">
+                                            <div class="monthly-img text-center">
+                                                @if ($home_publication_item->banner_image)
+                                                    <img src="{{ $home_publication_item->banner_image }}" alt=""
+                                                        class="img-responsive">
+                                                @else
+                                                    <img src="/website/images/default-publication.jpg" alt=""
+                                                        class="img-responsive">
+                                                @endif
+                                                <a
+                                                    href="{{ route('single_career', $home_publication_item->nav_name) }}">
+
+                                                    <h5 class="martel text-semi-bold d-black mt-10">
+
+
+                                                        {{ Str::limit($home_publication_item->caption, 30) }}
+
+                                                    </h5>
+                                                </a>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+
+
                             </div>
                         </div>
                     </div>
