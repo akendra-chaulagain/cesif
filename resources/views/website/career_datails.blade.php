@@ -1,5 +1,7 @@
 @php
     $carrer = App\Models\Navigation::find($career_details->parent_page_id)->career_childs->take(5);
+    $thematic_area = App\Models\Navigation::find(2613)->childs->take(5);
+    $thematic_area_first = App\Models\Navigation::find(2613);
 @endphp
 
 
@@ -44,15 +46,13 @@
                     <div class="sidebar-main box-shadow">
                         <h5 class="theme-color h-sep">Thematic <span class="text-ultra-bold blue-color">Areas</span> </h5>
                         <ul class="tri-links list-unstyled mt-20">
-                            <li><a href="#"><i class="fa fa-caret-right"></i> Domestic Politics & Governanace</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i> Federalism</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i> International Relation & Foreign
-                                    Affairs</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i> National Security & Climate Change</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i> Gender,Social Inclusion & Human
-                                    Rights</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i> Economy & Development</a></li>
+                            @foreach ($thematic_area as $thematic_area_item)
+                                <li><a href="/{{ $thematic_area_first->nav_name }}/{{ $thematic_area_item->nav_name }}"><i
+                                            class="fa fa-caret-right"></i> {{ $thematic_area_item->caption }}</a>
+                                </li>
+                            @endforeach
+
+
                         </ul>
                         <div class="mt-25 news-event">
                             <h5 class="theme-color mb-25 h-sep">Related <span

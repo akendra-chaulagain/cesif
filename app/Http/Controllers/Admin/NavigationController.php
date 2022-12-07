@@ -97,11 +97,12 @@ class NavigationController extends Controller
         }
 
         $navigation = Navigation::create($data);
+        // return $navigation->id;
 
         $date = Date::updateOrCreate(
+            ['date_yrs_month' => $page_title],
             [
-                'date_yrs_month' => $page_title,
-                'nav_category' => $nav_category
+                'nav_category' => $nav_category,
             ],
         );
 
@@ -133,7 +134,6 @@ class NavigationController extends Controller
 
         $request->offsetUnset('_token');
         $request->offsetUnset('_method');
-
         $data = $request->all();
         $navigation = Navigation::find($id);
         $parent_id = (intval($navigation->parent_page_id) == 0) ? '' : '/' . intval($navigation->parent_page_id);
@@ -192,12 +192,25 @@ class NavigationController extends Controller
 
         Navigation::where('id', $id)->update($data);
 
+        
         $date = Date::updateOrCreate(
-            [
-                'date_yrs_month' => $page_title,
-                'nav_category' => $nav_category
-            ],
-        );
+                ['date_yrs_month' => $page_title],
+                [
+                    'nav_category' => $nav_category,
+                ],
+            );
+
+
+
+        // $date = Date::updateOrCreate(
+        //     ['navigation_id' => $navigation->id, 'date_yrs_month' => $page_title,],
+        //     [
+        //         // 'date_yrs_month' => $page_title,
+        //         'nav_category' => $nav_category,
+        //         // 'navigation_id' => $navigation->id
+        //     ],
+        // );
+
 
 
         $navigationItems = NavigationItems::all();

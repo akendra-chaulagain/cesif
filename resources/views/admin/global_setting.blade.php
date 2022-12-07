@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="LinkedIn">LinkedIn url</label>
+                    <label for="LinkedIn">Instagram url</label>
                     <input type="text" id="LinkedIn" name="linkedin" class="form-control" placeholder="LinkedIn"
                         value="{{ $global_setting->linkedin }}">
                 </div>

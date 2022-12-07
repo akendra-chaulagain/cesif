@@ -14,8 +14,22 @@
     } elseif (isset($job)) {
         $seo = $job;
     }
+    
+    $father = array();
+    $commentaries = App\Models\Navigation::query()
+        ->where('page_type', 'Commentaries')
+        ->orWhere('page_type', 'News Digest')
+        ->orWhere('page_type', 'Monthly Analysis')
+        ->get();
+    // return $commentaries;
+    foreach ($commentaries as $index => $value) {
+        $p = $value->parents;
+        //  return $p->nav_name;
+        $father[$p->nav_name] = $p;
+    }
+    
 @endphp
-
+{{-- @dd($father) --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,21 +127,41 @@
                                         @if ($submenus->count() > 0)
                                             <ul class="dropdown-menu">
                                                 @foreach ($submenus as $sub)
-                                                    <li>
 
-                                                        <a
-                                                            href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
-                                                    </li>
+
+                                                
+                                              
+                                                        <li>
+                                                            <a
+                                                                href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
+                                                        </li>
+                                           
                                                 @endforeach
+
+
+                                                      @if ($menu->id == 2669)
+                                                        @foreach ($father as $father_item)
+                                                            <li>
+                                                                <a
+                                                                    href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
+                                                                
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+
+                                                        <li>
+                                                            <a
+                                                                href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
+                                                        </li>
+                                                    @else
+
+
+                                                    @endif
                                             </ul>
                                         @endif
                                     </li>
                                 @endforeach
                                 <li><a href="/contact">Contact</a></li>
-
-
-
-
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -146,6 +180,55 @@
 
 
     @yield('content')
+
+    <footer>
+        <div class="upper-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <img class="img-responsive mt-60"src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
+                            alt="footer_icon">
+                    </div>
+                    <div class="col-md-6 col-sm-3">
+                        {!! $global_setting->page_keyword !!}
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <h6 class="text-uppercase text-bold gray-e8 bb display-ib">keep in touch</h6>
+                        <span class="ubuntu fz-14 black display-block mt-30 lh-24">Address :
+                            {{ $global_setting->website_full_address }} {{ $global_setting->address_ne }}</span>
+                        <span class="ubuntu fz-14 black display-block lh-24 contact-info">Phone : <a
+                                href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>, <br><a
+                                href="tel:015437508"> {{ $global_setting->phone_ne }}</a> </span>
+                        <span class="ubuntu fz-14 black display-block lh-24 contact-info">Email : <a
+                                href="mailto:info@cesifnepal.org">{{ $global_setting->site_email }}</a></span>
+                        <div class="footer-social list-inline">
+                            <a target="_blank" href="{{ $global_setting->facebook }}"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="{{ $global_setting->twitter }}"><i
+                                    class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="{{ $global_setting->linkedin }}"><i
+                                    class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lower-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="ubuntu fz-12 text-uppercase text-medium">Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> CESIF Nepal All Rights Reserved. Developed By <a
+                                href="http://radiantnepal.com/" target="_blank">Radiant Infotech Nepal</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
 
 

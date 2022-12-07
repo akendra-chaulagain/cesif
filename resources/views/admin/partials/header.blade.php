@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard - Blue Ocean Overseas Pvt. Ltd</title>
+  <title>Dashboard - Global Management Foundation</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,7 +30,7 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
 
-  <link rel="icon" type="image/png" href="{{asset('assets/img/fav-icon.png')}}" sizes="16x16">
+  <link rel="icon" type="image/png" href="{{asset('/assets/img/fav-icon.png')}}" sizes="16x16">
 
 
   @yield('style')

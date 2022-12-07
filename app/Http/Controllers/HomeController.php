@@ -15,7 +15,10 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $date = Date::all()->where('nav_category', 'Home');
+        // return $date;
+
 
         $home_publication = Navigation::all()->where('page_type', 'Publication');
         // return $home_publication;
@@ -27,8 +30,8 @@ class HomeController extends Controller
 
         $home_commentaries = Navigation::all()->where('page_type', 'Commentaries');
         //  return $home_commentaries;
-       
-        
+
+
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
 
 
@@ -131,7 +134,7 @@ class HomeController extends Controller
         // return $job_categories;
         $global_setting = GlobalSetting::all()->first();
         //return $missons;       
-        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons, 'job_categories' => $job_categories, 'message' => $message, 'process' => $process,  'home_client' => $home_client, 'monthly_analysis' => $monthly_analysis, 'date'=> $date, 'home_publication'=> $home_publication, 'home_News'=>$home_News, 'home_commentaries'=> $home_commentaries]);
+        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons, 'job_categories' => $job_categories, 'message' => $message, 'process' => $process,  'home_client' => $home_client, 'monthly_analysis' => $monthly_analysis, 'date' => $date, 'home_publication' => $home_publication, 'home_News' => $home_News, 'home_commentaries' => $home_commentaries,]);
     }
 
 
@@ -409,7 +412,7 @@ class HomeController extends Controller
             $themic_parent_sub = $themic_parent->childs;
             $date = Date::all()->where('nav_category', 'Main');
             //  return $themic_parent_sub;
-            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent' => $themic_parent, 'themic_parent_sub' => $themic_parent_sub, 'date'=> $date]);
+            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent' => $themic_parent, 'themic_parent_sub' => $themic_parent_sub, 'date' => $date]);
         } else {
             // return redirect("/");
         }
@@ -463,7 +466,7 @@ class HomeController extends Controller
         $dates_title = Navigation::all()->where('page_title', $slug)->where('nav_category', 'Main')->first();
 
 
-      
+
 
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
             $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
@@ -474,8 +477,32 @@ class HomeController extends Controller
         }
         $global_setting = GlobalSetting::all()->first();
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
-        return view("website.all_data_acc_date")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "dates" => $dates, 'dates_title' => $dates_title, 'date'=> $date ]);
+        return view("website.all_data_acc_date")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "dates" => $dates, 'dates_title' => $dates_title, 'date' => $date]);
     }
+
+
+
+
+    public function All_cat_data($slug)
+    {
+        // return $slug;
+        $career_details = Navigation::all()->where('nav_name', $slug);
+        $page_type =  $career_details->first()->childs->first()->page_type;
+        $allData = Navigation::where("page_type", $page_type)->paginate(12);
+        // return $page_type;
+        if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
+            $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
+            $partners = Navigation::query()->where('parent_page_id', $partners_id)->latest()->get();
+            //return $partners;
+        } else {
+            $partners = null;
+        }
+        $global_setting = GlobalSetting::all()->first();
+        $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
+        return view("website.all_months_data")->with(["partners" => $partners, 'career_details' => $career_details, 'menus' => $menus, 'global_setting' => $global_setting, 'allData' => $allData, 'page_type' => $page_type]);
+    }
+
+
 
 
 
