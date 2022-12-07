@@ -22,8 +22,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            {{-- js to make option tag clickable --}}
-                            {{-- <a href="{{ route('single_career', $item->nav_name) }}"></a> --}}
+                           
                             <script type="text/javascript">
                                 function handleSelect(elm) {
                                     window.location = "/all-data/" + elm.value;

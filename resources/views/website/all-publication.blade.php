@@ -36,7 +36,11 @@
 
                                     <a href="{{ route('single_career', $publication_parent_subitem->nav_name) }}">
                                         <h5 class="martel text-semi-bold d-black mt-10">
-                                            {{ $publication_parent_subitem->caption }}</h5>
+
+                                            {{ Str::limit($publication_parent_subitem->caption, 50) }}
+                                        
+                                        
+                                        </h5>
                                     </a>
 
 
