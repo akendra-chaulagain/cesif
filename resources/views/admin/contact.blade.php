@@ -41,7 +41,7 @@
                             <div class="col-md-6 mt-25"><input id="contact_phone" type="text" name="number"
                                     class="form-control" placeholder="Phone"></div>
                             <div class="col-md-6 mt-25"><input id="contact_website" type="text" name="apply_for"
-                                    class="form-control" placeholder="Your website" required></div>
+                                    class="form-control" placeholder="Your website" ></div>
                         </div>
                         <textarea id="contact_message" rows="10" name="message" class="mt-25 form-control" placeholder="Write message"></textarea>
                         <div class="mt-25 submit">

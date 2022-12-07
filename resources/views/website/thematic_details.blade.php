@@ -15,11 +15,21 @@
                             <select name="archive" id="archive" onchange="javascript:handleSelect(this)">
                                 <option value="#">Archives</option>
                                 @foreach ($date as $mainitem)
-                                    <option value="{{ $mainitem->date_yrs_month }}">
+                                    @if ($mainitem->date_yrs_month)
+                                        <option value="{{ $mainitem->date_yrs_month }}">
 
-                                        {{ $mainitem->date_yrs_month }}
 
-                                    </option>
+                                            <script>
+                                                const d = new Date();
+                                                let text = d.toString();
+                                                document.getElementById("demo").innerHTML = text;
+                                            </script>
+
+
+                                            {{-- {{ $mainitem->date_yrs_month }} --}}
+
+                                        </option>
+                                    @endif
                                 @endforeach
                             </select>
 

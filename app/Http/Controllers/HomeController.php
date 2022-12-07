@@ -411,7 +411,7 @@ class HomeController extends Controller
             $themic_parent = Navigation::find($subcategory_id);
             $themic_parent_sub = $themic_parent->childs;
             $date = Date::all()->where('nav_category', 'Main');
-            //  return $themic_parent_sub;
+            //  return $date;
             return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent' => $themic_parent, 'themic_parent_sub' => $themic_parent_sub, 'date' => $date]);
         } else {
             // return redirect("/");

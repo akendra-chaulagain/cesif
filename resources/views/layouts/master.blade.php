@@ -257,7 +257,7 @@
     @if (Session::has('contact'))
         <script>
             Swal.fire(
-                'Thanks!',
+                'Thank You !',
                 "Form submitted sucessfully!!!",
                 'success'
             )
