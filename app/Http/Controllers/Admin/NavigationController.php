@@ -99,12 +99,11 @@ class NavigationController extends Controller
         $navigation = Navigation::create($data);
 
         $date = Date::updateOrCreate(
-            ['date_yrs_month' => $page_title],
+            [
+                'date_yrs_month' => $page_title,
+                'nav_category' => $nav_category
+            ],
         );
-
-        // $date = HomeDates::updateOrCreate(
-        //     ['home_dates' => $page_title],
-        // );
 
         return redirect('admin/navigation-list/' . $nav_category . $parent_id)->with('success', 'Data Added Succssfully!!');
     }
@@ -194,7 +193,10 @@ class NavigationController extends Controller
         Navigation::where('id', $id)->update($data);
 
         $date = Date::updateOrCreate(
-            ['date_yrs_month' => $page_title],
+            [
+                'date_yrs_month' => $page_title,
+                'nav_category' => $nav_category
+            ],
         );
 
 

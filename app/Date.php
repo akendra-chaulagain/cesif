@@ -8,6 +8,7 @@ class Date extends Model
 {
     protected $fillable = [
         'date_yrs_month',
+        'nav_category'
     ];
 
     //

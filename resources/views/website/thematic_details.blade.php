@@ -1,8 +1,3 @@
-@php
-    $date = App\Date::all();
-@endphp
-
-
 @extends('layouts.master')
 @push('title')
     {{ $themic_parent->caption }}

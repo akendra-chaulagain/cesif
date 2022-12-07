@@ -1,6 +1,6 @@
-@php
+{{-- @php
     $date = App\Date::all();
-@endphp
+@endphp --}}
 
 
 @extends('layouts.master')

@@ -1,6 +1,3 @@
-@php
-    $date = App\Date::all();
-@endphp
 
 
 
