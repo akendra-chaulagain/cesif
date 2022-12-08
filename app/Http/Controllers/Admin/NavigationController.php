@@ -100,8 +100,9 @@ class NavigationController extends Controller
         // return $navigation->id;
 
         $date = Date::updateOrCreate(
-            ['date_yrs_month' => $page_title],
+            // [],
             [
+                'date_yrs_month' => $page_title,
                 'nav_category' => $nav_category,
             ],
         );
