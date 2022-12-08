@@ -149,10 +149,7 @@
                                                             </li>
                                                         @endforeach
 
-                                                        <li>
-                                                            <a
-                                                                href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
-                                                        </li>
+                                                       
                                                     @else
 
 
