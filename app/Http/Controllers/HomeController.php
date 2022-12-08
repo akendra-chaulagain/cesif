@@ -460,7 +460,7 @@ class HomeController extends Controller
 
     public function get_all_Acc_date($slug)
     {
-        $dates = Navigation::where('page_title', $slug)->where('nav_category', 'Main')->where('page_type', '!=', 'Group')->where('page_type', '!=', 'Normal')->where('page_type', '!=', 'Publication')->paginate(12);
+        $dates = Navigation::where('page_title', $slug)->where('nav_category', 'Main')->where('page_type', '!=', 'Career')->where('page_type', '!=', 'Group')->where('page_type', '!=', 'Normal')->where('page_type', '!=', 'Publication')->paginate(12);
         // return $dates;
         $date = Date::all()->where('nav_category', 'Main');
 
