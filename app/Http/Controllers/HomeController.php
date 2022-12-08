@@ -397,6 +397,7 @@ class HomeController extends Controller
             $team_heading = Navigation::find($subcategory_id);
             // return $team_heading->childs;
             $teamsub = $team_heading->childs;
+            // return $teamsub;
             return view("website.team")->with(["partners" => $partners, 'team_heading' => $team_heading, 'team' => $team, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'teamsub' => $teamsub]);
         } elseif ($subcategory_type == "Normal") {
             $normal = Navigation::find($subcategory_id);

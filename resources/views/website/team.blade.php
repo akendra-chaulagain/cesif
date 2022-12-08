@@ -1,7 +1,7 @@
 @extends('layouts.master')
-{{-- @push('title')
-    {{ $normal->caption }}
-@endpush --}}
+@push('title')
+   Team
+@endpush
 @section('content')
 
   <section class="mt-120">
@@ -23,11 +23,11 @@
                           <div class="col-md-3 col-md-offset-1 staff-member position-r text-center col-sm-6 mt-25">
                         <img class="img-responsive" src="{{ $teamsub_item->banner_image }}" alt="">
                         <div class="staff-hover">
-                            {{-- <ul class="staff-social list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul> --}}
+                            <ul class="staff-social list-inline">
+                                <li><a target="_blank" href="{{ $teamsub_item->extra_one }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="{{ $teamsub_item->extra_one }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="{{ $teamsub_item->extra_one }}"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
                             <h6 class="blue-color text-bold text-uppercase">{{ $teamsub_item->caption }}</h6>
                             <span class=" mt-15 ubuntu black text-bold text-uppercase display-block fz-12">{!! $teamsub_item->short_content !!}</span>
                             <p class="black">{!! $teamsub_item->long_content !!}</p>

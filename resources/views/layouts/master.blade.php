@@ -116,7 +116,7 @@
 
                                 @foreach ($menus as $menu)
                                     @php $submenus = $menu->childs; @endphp
-                                    <li class="dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
+                                    <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
                                             class="dropdown-toggle"
                                             @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
                                             role="button" aria-haspopup="true" aria-expanded="false"

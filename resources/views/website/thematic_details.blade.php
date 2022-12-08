@@ -19,14 +19,19 @@
                                         <option value="{{ $mainitem->date_yrs_month }}">
 
 
-                                            <script>
-                                                const d = new Date();
-                                                let text = d.toString();
-                                                document.getElementById("demo").innerHTML = text;
-                                            </script>
+                                            {{--  <script>
+                                document.write(new Date().getFullYear())
+                            </script> --}}
 
 
                                             {{-- {{ $mainitem->date_yrs_month }} --}}
+                                            <script>
+                                                const date = new Date({{ $mainitem->date_yrs_month }}); // 2009-11-10
+                                                const month = date.toLocaleString('default', {
+                                                    month: 'long'
+                                                });
+                                                document.write(month)
+                                            </script>
 
                                         </option>
                                     @endif
