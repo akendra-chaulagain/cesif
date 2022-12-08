@@ -196,6 +196,28 @@
                 <input class="form-control" type="date" id="page_keyword" name="page_keyword" placeholder="Page Keywords" value="">
             </div>
 
+            
+
+              <div class="form-group col-md-12">
+                    <label for="extra_one">Facebook link</label>
+                    <input class="form-control" type="text" id="extra_one" name="extra_one"
+                        placeholder="facebook link" >
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="extra_two">Twitter link</label>
+                    <input class="form-control" type="text" id="extra_two" name="extra_two"
+                        placeholder="twitter link" >
+                </div>
+
+                
+                <div class="form-group col-md-12">
+                    <label for="extra_three">Instagram link</label>
+                    <input class="form-control" type="text" id="extra_three" name="extra_three"
+                        placeholder="instagram link" >
+                </div>
+
+
 
              <div id="main_attachment" class="form-group col-md-10">
                 <label for="main_attachment">Main Attachment</label>
