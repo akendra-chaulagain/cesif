@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @push('title')
-    {{ $page_type}}
+    {{ $page_type }}
 @endpush
 @section('content')
     <section class="mt-120">

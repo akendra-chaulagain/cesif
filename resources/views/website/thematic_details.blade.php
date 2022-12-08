@@ -18,20 +18,14 @@
                                     @if ($mainitem->date_yrs_month)
                                         <option value="{{ $mainitem->date_yrs_month }}">
 
-
-                                            {{--  <script>
-                                document.write(new Date().getFullYear())
-                            </script> --}}
-
-
-                                            {{-- {{ $mainitem->date_yrs_month }} --}}
-                                            <script>
+                                            {{ $mainitem->date_yrs_month }}
+                                            {{-- <script>
                                                 const date = new Date({{ $mainitem->date_yrs_month }}); // 2009-11-10
                                                 const month = date.toLocaleString('default', {
                                                     month: 'long'
                                                 });
                                                 document.write(month)
-                                            </script>
+                                            </script> --}}
 
                                         </option>
                                     @endif

@@ -14,8 +14,11 @@
             <div class="col-md-12 text-center">
                 <div class="monthly-analysis-slider mt-30">
                     @foreach ($date as $date_item)
+                    @if ($date_item->date_yrs_month)
                         <a href="javascript:" data-filter=".{{ $date_item->date_yrs_month }}"
                             class="filter ubuntu text-medium">{{ $date_item->date_yrs_month }}</a>
+                    @endif
+                        
                     @endforeach
 
 
