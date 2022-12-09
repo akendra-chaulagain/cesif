@@ -15,20 +15,18 @@
         $seo = $job;
     }
     
-    $father = array();
-        $commentaries = App\Models\Navigation::query()
+    $father = [];
+    $commentaries = App\Models\Navigation::query()
         ->where('page_type', 'Commentaries')
         ->orWhere('page_type', 'News Digest')
         ->orWhere('page_type', 'Monthly Analysis')
         ->get();
-        // return $commentaries;
-        foreach ($commentaries as $index => $value) {
-            $p = $value->parents;
-           
-            $father[$p->caption] = $p;
-        }
+    // return $commentaries;
+    foreach ($commentaries as $index => $value) {
+        $p = $value->parents;
     
-        
+        $father[$p->caption] = $p;
+    }
     
 @endphp
 
@@ -123,13 +121,23 @@
 
                                 @foreach ($menus as $menu)
                                     @php $submenus = $menu->childs; @endphp
+
+
+
+
                                     <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
                                             class="dropdown-toggle"
                                             @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
                                             role="button" aria-haspopup="true" aria-expanded="false"
                                             @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
-                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}<span
-                                                class="caret"></span></a>
+                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}
+                                            @if ($menu->nav_name == 'career')
+                                            @else
+                                                <span class="caret"></span>
+                                            @endif
+
+
+                                        </a>
 
                                         @if ($submenus->count() > 0)
                                             <ul class="dropdown-menu">
