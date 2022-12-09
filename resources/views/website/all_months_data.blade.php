@@ -41,7 +41,7 @@
                         <h4 class="mt-20 fz-15 text-semi-bold d-black">
 
 
-                            {{ Str::limit($allData_item->caption, 50) }}
+                            {{ Str::limit($allData_item->caption, 40) }}
 
 
                         </h4>

@@ -104,7 +104,7 @@
                                 <h4 class="mt-20 fz-15 text-semi-bold d-black">
 
 
-                                    {{ Str::limit($mainitem->caption, 50) }}
+                                    {{ Str::limit($mainitem->caption, 40) }}
 
 
                                 </h4>
