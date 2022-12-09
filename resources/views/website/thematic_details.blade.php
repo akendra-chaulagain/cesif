@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="p-filter-nav">
-                        {{-- <a href="javascript:" data-filter="all" class="filter">All</a> --}}
+                        <a href="javascript:" data-filter="all" class="filter">All</a>
                         @foreach ($themic_parent_sub as $themic_parent_sub_item)
                             <a href="javascript:" data-filter=".{{ $themic_parent_sub_item->id }}" class="filter">
                                 {{ $themic_parent_sub_item->caption }}</a>
@@ -143,6 +143,6 @@
 @endsection
 
 
-{{-- @section('custom_js')
+@section('custom_js')
     <script src="/website/js/jquery.mixitup1.js"></script>
-@endsection --}}
+@endsection
