@@ -52,7 +52,6 @@
                                         <option value="{{ $mainitem->page_title }}">
 
 
-                                            {{-- {{ $mainitem->page_title }} --}}
                                             {{ date('F-Y', strtotime($mainitem->page_title)) }}
 
 
