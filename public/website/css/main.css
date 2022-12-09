@@ -2440,11 +2440,24 @@ hr.ed-divider{
     padding: 25px 0 50px;
    }
    .themetic-area #Container img{
-   max-height: 300px;
-    min-height: 300px;
+   max-height: 250px;
+    min-height: 250px;
     object-fit: cover;
     object-position: center;
 
+   }
+   .dates_allImg img{
+ max-height: 250px;
+    min-height: 250px;
+    object-fit: cover;
+    object-position: center;
+   }
+
+   .commentaries_image img{
+    max-height: 300px;
+    min-height: 300px;
+    object-fit: cover;
+    object-position: center;
    }
    .themetic-area .p-filter-nav > a{
     font-family: 'Martel Sans', sans-serif;

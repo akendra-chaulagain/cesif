@@ -70,7 +70,7 @@
             <div class="row">
 
                 @foreach ($dates as $dates_item)
-                    <div class="col-md-4 col-sm-6 r-event mt-25">
+                    <div class="col-md-4 col-sm-6 r-event mt-25 dates_allImg">
                         <img src="{{ $dates_item->banner_image }}" alt="" class="img-responsive">
                         <h4 class="mt-20 fz-15 text-semi-bold d-black">{{ $dates_item->caption }}</h4>
                         <h5 class="ubuntu fz-12 theme-color mt-10 r-divider">Date: <span
@@ -80,9 +80,6 @@
                                     class="blue-color">{{ $dates_item->icon_image_caption }}</span>
                             @else
                             @endif
-
-
-
 
                         </h5>
 
@@ -106,11 +103,7 @@
 
             </div>
             <div class="bp-btns mt-50 text-center">
-                {{-- <a href="#"><i class="fa fa-caret-left"></i> Previous</a>
-                <a href="#">Next <i class="fa fa-caret-right"></i></a> --}}
 
-
-                {{-- {{ $dates->links() }} --}}
 
                 @if ($dates->hasPages())
                     <nav aria-label="Page navigation example">

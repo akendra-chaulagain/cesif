@@ -8,7 +8,7 @@
         </div>
         <div class="row mt-50">
             <div class="col-md-12">
-                <div class="causes">
+                <div class="causes commentaries_image">
                     @foreach ($home_commentaries as $home_commentaries_item)
                         <div class="item">
                             <div class="causes-img text-center">
