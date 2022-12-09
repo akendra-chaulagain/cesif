@@ -30,14 +30,10 @@
                         <div class="blog-post-img">
                             <img class="img-responsive" src="{{ $career_details->banner_image }}" alt="">
                         </div>
-                        <br>
 
-                       
+                        {!! $career_details->long_content !!}
 
-                        <p>
-                            {!! $career_details->long_content !!}
 
-                        </p>
                     </div>
                 </div>
 
