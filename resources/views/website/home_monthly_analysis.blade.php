@@ -54,7 +54,7 @@
                             class="col-md-4 col-sm-6 mix {{ $monthly_analysisitems->page_title }} @if($ibc == $monthly_analysisitems->page_title)  active  @endif" >
 
                             <div class="monthly-analysis-item" >
-                                <a href="{ route('single_career', $monthly_analysisitem->nav_name) }}"></a>
+                                <a href="{{ route('single_career', $monthly_analysisitems->nav_name) }}"></a>
                                 <div class="monthly-img text-center">
                                     <img src="{{ $monthly_analysisitems->banner_image }}" alt=""
                                         class="img-responsive">
