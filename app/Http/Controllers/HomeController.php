@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         //     ->where('page_type', 'Monthly Analysis')
         //     ->get();
-      
+
         // foreach ($commentaries as $index => $value) {
         //     $p = $value;
 
@@ -446,10 +446,12 @@ class HomeController extends Controller
             return view("website.all-publication")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'publication_parent' => $publication_parent, 'publication_parent_sub' => $publication_parent_sub]);
         } elseif ($subcategory_type == "Group") {
             $themic_parent = Navigation::find($subcategory_id);
+
+
             $themic_parent_sub = $themic_parent->childs;
-            $date = Date::all()->where('nav_category', 'Main');
-            //  return $themic_parent_sub;
-            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent' => $themic_parent, 'themic_parent_sub' => $themic_parent_sub, 'date' => $date]);
+            // return $themic_parent_sub;
+            // $date = Date::all()->where('nav_category', 'Main');
+            return view("website.thematic_details")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'themic_parent' => $themic_parent, 'themic_parent_sub' => $themic_parent_sub,]);
         } else {
             // return redirect("/");
         }

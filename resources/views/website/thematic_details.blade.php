@@ -52,6 +52,7 @@
                                         <option value="{{ $mainitem->page_title }}">
 
 
+                                            {{-- {{ $mainitem->page_title }} --}}
                                             {{ date('F-Y', strtotime($mainitem->page_title)) }}
 
 
@@ -96,11 +97,11 @@
         <div class="container">
             <div id="Container">
                 @foreach ($themic_parent_sub as $themic_parent_sub_item)
-                    @php
+                    {{-- @php
                         $main = App\Models\Navigation::find($themic_parent_sub_item->id)->childs;
-                    @endphp
+                    @endphp --}}
                     <div class="row  mix {{ $themic_parent_sub_item->id }}">
-                        @foreach ($main as $mainitem)
+                        @foreach ($themic_parent_sub_item->childs as $mainitem)
                             <div class="col-md-4 r-event mt-25">
                                 <img src="{{ $mainitem->banner_image }}" alt="" class="img-responsive">
                                 <h4 class="mt-20 fz-15 text-semi-bold d-black">

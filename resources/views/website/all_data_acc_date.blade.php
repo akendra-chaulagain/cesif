@@ -1,5 +1,5 @@
 @php
-     $all_nav = [];
+    $all_nav = [];
     $commentaries = App\Models\Navigation::query()
     
         ->orWhere('page_type', 'Monthly Analysis')
@@ -41,12 +41,7 @@
                                 @foreach ($all_nav as $mainitem)
                                     @if ($mainitem->page_title)
                                         <option value="{{ $mainitem->page_title }}">
-
                                             {{ date('F-Y', strtotime($mainitem->page_title)) }}
-
-
-
-
                                         </option>
                                     @endif
                                 @endforeach
