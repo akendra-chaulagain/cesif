@@ -30,16 +30,10 @@
             <div class="col-md-12 text-center">
                 <div class="monthly-analysis-slider mt-30">
                     @foreach ($all_nav as $date_item)
-                        {{-- @if ($date_item->date_yrs_month) --}}
                         <a href="javascript:" data-filter=".{{ $date_item->page_title }}"
                             class="filter ubuntu text-medium">
-
-                            {{-- {{ $date_item->page_title }} --}}
                             {{ date('F-Y', strtotime($date_item->page_title)) }}
-
-
                         </a>
-                        {{-- @endif --}}
                     @endforeach
 
 
@@ -47,25 +41,40 @@
             </div>
         </div>
         <div id="Container" class="mt-25">
-            @foreach ($all_nav_data as $monthly_analysisitem)
-                <div class="row mix {{ $monthly_analysisitem->page_title }}">
 
-                    <div class="col-md-4 col-sm-6">
-                        <div class="monthly-analysis-item">
-                            <a href="{{ route('single_career', $monthly_analysisitem->nav_name) }}"></a>
-                            <div class="monthly-img text-center">
-                                <img src="{{ $monthly_analysisitem->banner_image }}" alt=""
-                                    class="img-responsive">
-                                <h5 class="martel text-semi-bold d-black">{{ $monthly_analysisitem->caption }}
-                                </h5>
+            @php
+                $ibc = $all_nav_data->first()->page_title;
+            @endphp
+
+
+            <div id="Container" class="mt-25">
+                <div class="row  ">
+                    @foreach ($all_nav_data as $index => $monthly_analysisitems)
+                        <div
+                            class="col-md-4 col-sm-6 mix {{ $monthly_analysisitems->page_title }} @if($ibc == $monthly_analysisitems->page_title)  active  @endif" >
+
+                            <div class="monthly-analysis-item" >
+                                <a href="#"></a>
+                                <div class="monthly-img text-center">
+                                    <img src="{{ $monthly_analysisitems->banner_image }}" alt=""
+                                        class="img-responsive">
+                                    <h5 class="martel text-semi-bold d-black">{{ $monthly_analysisitems->caption }}
+                                    </h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
                 </div>
-            @endforeach
+
+            </div>
+            {{-- @endforeach --}}
 
 
         </div>
+        {{-- @endforeach --}}
+
+
     </div>
+</div>
 </div>

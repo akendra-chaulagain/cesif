@@ -18,40 +18,6 @@ class HomeController extends Controller
 
 
 
-        // $all_nav = App\Models\Navigation::query()
-        //     ->orWhere('page_type', 'Monthly Analysis')
-        //     ->orderBy('page_title', 'desc')
-        //     ->get()
-
-
-
-        // $father = array();
-        // $commentaries = Navigation::query()
-
-        //     ->where('page_type', 'Monthly Analysis')
-        //     ->get();
-
-        // foreach ($commentaries as $index => $value) {
-        //     $p = $value;
-
-        //     $father[$p->page_title] = $p;
-        // }
-
-        // return $father;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $date = Date::all()->where('nav_category', 'Main');
 
 

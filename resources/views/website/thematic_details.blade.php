@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="p-filter-nav">
-                        {{-- <a href="javascript:" data-filter="all" class="filter">All</a> --}}
+                        <a href="javascript:" data-filter="all" class="filter">All</a>
                         @foreach ($themic_parent_sub as $themic_parent_sub_item)
                             <a href="javascript:" data-filter=".{{ $themic_parent_sub_item->id }}" class="filter">
                                 {{ $themic_parent_sub_item->caption }}</a>
@@ -122,7 +122,9 @@
                                 @else
                                 @endif
                                 </h5>
-                                <p class="lh-26 mt-20">{!! Str::limit($mainitem->short_content, 130) !!}</p>
+                                <p class="lh-26 mt-20">
+                                    {!! Str::limit($mainitem->short_content, 130) !!}
+                                </p>
                                 <div class="mt-20">
                                     <a href="{{ route('single_career', $mainitem->nav_name) }}" class="btn-green-br">Read
                                         More</a>
@@ -139,6 +141,6 @@
 @endsection
 
 
-{{-- @section('custom_js')
+@section('custom_js')
     <script src="/website/js/jquery.mixitup1.js"></script>
-@endsection --}}
+@endsection
