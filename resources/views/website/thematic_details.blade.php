@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="p-filter-nav">
-                        <a href="javascript:" data-filter="all" class="filter">All</a>
+                        {{-- <a href="javascript:" data-filter="all" class="filter">All</a> --}}
                         @foreach ($themic_parent_sub as $themic_parent_sub_item)
                             <a href="javascript:" data-filter=".{{ $themic_parent_sub_item->id }}" class="filter">
                                 {{ $themic_parent_sub_item->caption }}</a>
@@ -97,9 +97,6 @@
         <div class="container">
             <div id="Container">
                 @foreach ($themic_parent_sub as $themic_parent_sub_item)
-                    {{-- @php
-                        $main = App\Models\Navigation::find($themic_parent_sub_item->id)->childs;
-                    @endphp --}}
                     <div class="row  mix {{ $themic_parent_sub_item->id }}">
                         @foreach ($themic_parent_sub_item->childs as $mainitem)
                             <div class="col-md-4 r-event mt-25">
@@ -132,8 +129,6 @@
                                 </div>
                             </div>
                         @endforeach
-
-
                     </div>
                 @endforeach
 
@@ -144,6 +139,6 @@
 @endsection
 
 
-@section('custom_js')
+{{-- @section('custom_js')
     <script src="/website/js/jquery.mixitup1.js"></script>
-@endsection
+@endsection --}}

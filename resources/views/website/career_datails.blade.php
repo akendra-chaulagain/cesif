@@ -31,11 +31,13 @@
                             <img class="img-responsive" src="{{ $career_details->banner_image }}" alt="">
                         </div>
                         <br>
-                        <br>
-                        {!! $career_details->short_content !!}
-                        <br>
-                        <br>
-                        {!! $career_details->long_content !!}
+
+                       
+
+                        <p>
+                            {!! $career_details->long_content !!}
+
+                        </p>
                     </div>
                 </div>
 
