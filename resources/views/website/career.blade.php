@@ -26,7 +26,7 @@
                         <a href="{{ route('single_career', $career_breed_item->nav_name) }}">
                             <div class="monthly-img">
                                 <img src="{{ $career_breed_item->banner_image }}" alt="" class="img-responsive">
-                                <h5 class="martel text-semi-bold blue-color theme-color-hover fz-14 mt-10">{{ $career_breed_item->caption }}r</h5>
+                                <h5 class="martel text-semi-bold blue-color theme-color-hover fz-14 mt-10">{{ $career_breed_item->caption }}</h5>
                             </div>
                         </a>
                     </div>
