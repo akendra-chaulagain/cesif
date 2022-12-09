@@ -1,3 +1,16 @@
+@php
+    $all_nav = App\Models\Navigation::query()
+        ->orWhere('page_type', 'Monthly Analysis')
+        ->orWhere('page_type', 'Commentaries')
+        ->orWhere('page_type', 'News Digest')
+        ->orWhere('page_type', 'Proceeding Report')
+        ->orWhere('page_type', 'Research Reports')
+        ->orWhere('page_type', 'Publication')
+        ->orderBy('page_title', 'desc')
+        ->get();
+@endphp
+
+
 @extends('layouts.master')
 @push('title')
     {{ $page_type }}

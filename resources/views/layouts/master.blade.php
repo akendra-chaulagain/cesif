@@ -16,20 +16,27 @@
     }
     
     $father = array();
-    $commentaries = App\Models\Navigation::query()
+        $commentaries = App\Models\Navigation::query()
         ->where('page_type', 'Commentaries')
         ->orWhere('page_type', 'News Digest')
         ->orWhere('page_type', 'Monthly Analysis')
         ->get();
-    // return $commentaries;
-    foreach ($commentaries as $index => $value) {
-        $p = $value->parents;
-        //  return $p->nav_name;
-        $father[$p->nav_name] = $p;
-    }
+        // return $commentaries;
+        foreach ($commentaries as $index => $value) {
+            $p = $value->parents;
+           
+            $father[$p->caption] = $p;
+        }
+    
+        
     
 @endphp
+
+
 {{-- @dd($father) --}}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,33 +134,23 @@
                                         @if ($submenus->count() > 0)
                                             <ul class="dropdown-menu">
                                                 @foreach ($submenus as $sub)
-
-
-                                                
-                                              
-                                                        <li>
-                                                            <a
-                                                                href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
-                                                        </li>
-                                           
+                                                    <li>
+                                                        <a
+                                                            href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
+                                                    </li>
                                                 @endforeach
 
 
-                                                      @if ($menu->id == 2669)
-                                                        @foreach ($father as $father_item)
-                                                            <li>
-                                                                <a
-                                                                    href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
-                                                                
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
+                                                @if ($menu->id == 2669)
+                                                    @foreach ($father as $father_item)
+                                                        <li>
+                                                            <a href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
 
-                                                       
-                                                    @else
-
-
-                                                    @endif
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                @endif
                                             </ul>
                                         @endif
                                     </li>
@@ -249,6 +246,7 @@
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     @if (Session::has('contact'))

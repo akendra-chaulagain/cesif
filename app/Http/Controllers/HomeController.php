@@ -9,6 +9,7 @@ use App\Models\Navigation;
 use Illuminate\Http\Request;
 use App\Job;
 use App\Date;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -16,8 +17,49 @@ class HomeController extends Controller
     {
 
 
-        $date = Date::all()->where('nav_category', 'Home');
-        // return $date;
+
+        // $all_nav = App\Models\Navigation::query()
+        //     ->orWhere('page_type', 'Monthly Analysis')
+        //     ->orderBy('page_title', 'desc')
+        //     ->get()
+
+
+
+        // $father = array();
+        // $commentaries = Navigation::query()
+
+        //     ->where('page_type', 'Monthly Analysis')
+        //     ->get();
+      
+        // foreach ($commentaries as $index => $value) {
+        //     $p = $value;
+
+        //     $father[$p->page_title] = $p;
+        // }
+
+        // return $father;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $date = Date::all()->where('nav_category', 'Main');
+
+
+        $all_nav = Navigation::query()->orWhere('page_type', 'Monthly Analysis')->orderBy('created_at', 'desc')->take(6)->get();
+
+
+
+        // return $all_nav;
 
 
         $home_publication = Navigation::all()->where('page_type', 'Publication');
@@ -38,12 +80,6 @@ class HomeController extends Controller
         // client
         $home_client  = Navigation::query()->where('nav_category', 'Main')->where('page_type', '=', 'client')->where('page_status', '1')->orderBy('position', 'ASC')->paginate(30);
         //   return $home_client;
-
-
-
-
-
-
 
 
         //return $menus;
@@ -134,7 +170,7 @@ class HomeController extends Controller
         // return $job_categories;
         $global_setting = GlobalSetting::all()->first();
         //return $missons;       
-        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons, 'job_categories' => $job_categories, 'message' => $message, 'process' => $process,  'home_client' => $home_client, 'monthly_analysis' => $monthly_analysis, 'date' => $date, 'home_publication' => $home_publication, 'home_News' => $home_News, 'home_commentaries' => $home_commentaries,]);
+        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons, 'job_categories' => $job_categories, 'message' => $message, 'process' => $process,  'home_client' => $home_client, 'monthly_analysis' => $monthly_analysis, 'date' => $date, 'home_publication' => $home_publication, 'home_News' => $home_News, 'home_commentaries' => $home_commentaries, 'all_nav' => $all_nav]);
     }
 
 

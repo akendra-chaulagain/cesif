@@ -1,3 +1,36 @@
+@php
+    // $all_nav = App\Models\Navigation::query()
+    //     ->orWhere('page_type', 'Monthly Analysis')
+    //     ->orWhere('page_type', 'Commentaries')
+    //     ->orWhere('page_type', 'News Digest')
+    //     ->orWhere('page_type', 'Proceeding Report')
+    //     ->orWhere('page_type', 'Research Reports')
+    //     ->orWhere('page_type', 'Publication')
+    //     ->orderBy('page_title', 'desc')
+    //     ->get();
+    
+    $all_nav = [];
+    $commentaries = App\Models\Navigation::query()
+    
+        ->orWhere('page_type', 'Monthly Analysis')
+        ->orWhere('page_type', 'Commentaries')
+        ->orWhere('page_type', 'News Digest')
+        ->orWhere('page_type', 'Proceeding Report')
+        ->orWhere('page_type', 'Research Reports')
+        ->orWhere('page_type', 'Publication')
+        ->orderBy('page_title', 'desc')
+        ->get();
+    
+    foreach ($commentaries as $index => $value) {
+        $p = $value;
+    
+        $all_nav[$p->page_title] = $p;
+    }
+    
+@endphp
+
+
+
 @extends('layouts.master')
 @push('title')
     {{ $themic_parent->caption }}
@@ -14,18 +47,15 @@
                         <div class="input-group">
                             <select name="archive" id="archive" onchange="javascript:handleSelect(this)">
                                 <option value="#">Archives</option>
-                                @foreach ($date as $mainitem)
-                                    @if ($mainitem->date_yrs_month)
-                                        <option value="{{ $mainitem->date_yrs_month }}">
+                                @foreach ($all_nav as $mainitem)
+                                    @if ($mainitem->page_title)
+                                        <option value="{{ $mainitem->page_title }}">
 
-                                            {{ $mainitem->date_yrs_month }}
-                                            {{-- <script>
-                                                const date = new Date({{ $mainitem->date_yrs_month }}); // 2009-11-10
-                                                const month = date.toLocaleString('default', {
-                                                    month: 'long'
-                                                });
-                                                document.write(month)
-                                            </script> --}}
+
+                                            {{-- {{ $mainitem->page_title }} --}}
+                                            {{ date('F-Y', strtotime($mainitem->page_title)) }}
+
+
 
                                         </option>
                                     @endif

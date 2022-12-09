@@ -1,49 +1,54 @@
-{{-- @php
-    $date = App\Date::all();
-@endphp --}}
+@php
+     $all_nav = [];
+    $commentaries = App\Models\Navigation::query()
+    
+        ->orWhere('page_type', 'Monthly Analysis')
+        ->orWhere('page_type', 'Commentaries')
+        ->orWhere('page_type', 'News Digest')
+        ->orWhere('page_type', 'Proceeding Report')
+        ->orWhere('page_type', 'Research Reports')
+        ->orWhere('page_type', 'Publication')
+        ->orderBy('page_title', 'desc')
+        ->get();
+    
+    foreach ($commentaries as $index => $value) {
+        $p = $value;
+    
+        $all_nav[$p->page_title] = $p;
+    }
+@endphp
 
 
 @extends('layouts.master')
 @push('title')
-    {{ $dates_title->page_title ?? 'All-data' }}
+    {{ date('F-Y', strtotime($dates_title->page_title)) }}
 @endpush
 @section('content')
     <section class="mt-120">
         <div class="container">
             <div class="row">
                 <div class="col-md-9 col-sm-9">
-                    <h3 class="h-sep theme-color"> {{ $dates_title->page_title ?? 'All-data' }}</h3>
+                    <h3 class="h-sep theme-color">
+                        {{ date('F-Y', strtotime($dates_title->page_title)) }}
+
+                    </h3>
                 </div>
                 <div class="col-md-3">
                     <div class="s-archive">
                         <div class="input-group">
                             <select name="archive" id="archive" onchange="javascript:handleSelect(this)">
                                 <option value="#">Archives</option>
-                                @foreach ($date as $mainitem)
+                                @foreach ($all_nav as $mainitem)
+                                    @if ($mainitem->page_title)
+                                        <option value="{{ $mainitem->page_title }}">
 
-                                    {{-- <option value="{{ $mainitem->date_yrs_month }}">
-
-                                        {{ $mainitem->date_yrs_month }}
-
-                                    </option> --}}
+                                            {{ date('F-Y', strtotime($mainitem->page_title)) }}
 
 
 
-                                     @if ($mainitem->date_yrs_month)
-                                        <option value="{{ $mainitem->date_yrs_month }}">
-
-                                            {{ $mainitem->date_yrs_month }}
-                                            {{-- <script>
-                                                const date = new Date({{ $mainitem->date_yrs_month }}); // 2009-11-10
-                                                const month = date.toLocaleString('default', {
-                                                    month: 'long'
-                                                });
-                                                document.write(month)
-                                            </script> --}}
 
                                         </option>
                                     @endif
-                          
                                 @endforeach
                             </select>
 
@@ -85,10 +90,16 @@
 
 
                         </h5>
+
+
                         <p class="lh-26 mt-20">
                             {{ Str::limit($dates_item->short_content, 130) }}
 
                         </p>
+
+
+
+
                         <div class="mt-20">
                             <a href="{{ route('single_career', $dates_item->nav_name) }}" class="btn-green-br">Read More</a>
                         </div>
