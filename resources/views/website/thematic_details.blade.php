@@ -122,7 +122,7 @@
                                 @else
                                 @endif
                                 </h5>
-                                <p class="lh-26 mt-20">{!! Str::limit($mainitem->long_content, 130) !!}</p>
+                                <p class="lh-26 mt-20">{!! Str::limit($mainitem->short_content, 130) !!}</p>
                                 <div class="mt-20">
                                     <a href="{{ route('single_career', $mainitem->nav_name) }}" class="btn-green-br">Read
                                         More</a>
