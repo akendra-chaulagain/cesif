@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($allData as $allData_item)
-                    <div class="col-md-4 r-event mt-25">
+                    <div class="col-md-4 r-event mt-25 dates_allImg">
                         <img src="{{ $allData_item->banner_image }}" alt="" class="img-responsive">
                         <h4 class="mt-20 fz-15 text-semi-bold d-black">
 
