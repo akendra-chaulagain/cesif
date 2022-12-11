@@ -1,14 +1,4 @@
 @php
-    // $all_nav = App\Models\Navigation::query()
-    //     ->orWhere('page_type', 'Monthly Analysis')
-    //     ->orWhere('page_type', 'Commentaries')
-    //     ->orWhere('page_type', 'News Digest')
-    //     ->orWhere('page_type', 'Proceeding Report')
-    //     ->orWhere('page_type', 'Research Reports')
-    //     ->orWhere('page_type', 'Publication')
-    //     ->orderBy('page_title', 'desc')
-    //     ->get();
-    
     $all_nav = [];
     $commentaries = App\Models\Navigation::query()
     
@@ -80,6 +70,9 @@
             </div>
         </div>
     </section>
+
+    
+
     <section class="projects themetic-area">
         <div class="container">
             <div class="row">
@@ -97,7 +90,7 @@
         <div class="container">
             <div id="Container">
                 @foreach ($themic_parent_sub as $themic_parent_sub_item)
-                    <div class="row  mix {{ $themic_parent_sub_item->id }}">
+                    <div class="row  mix {{ $themic_parent_sub_item->id }} ">
                         @foreach ($themic_parent_sub_item->childs as $mainitem)
                             <div class="col-md-4 r-event mt-25">
                                 <img src="{{ $mainitem->banner_image }}" alt="" class="img-responsive">

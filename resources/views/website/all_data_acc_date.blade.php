@@ -72,12 +72,10 @@
                 @foreach ($dates as $dates_item)
                     <div class="col-md-4 col-sm-6 r-event mt-25 dates_allImg">
                         <img src="{{ $dates_item->banner_image }}" alt="" class="img-responsive">
+
                         <h4 class="mt-20 fz-15 text-semi-bold d-black">
-                            {{-- {{ $dates_item->caption }} --}}
-                            <
                             {{ Str::limit($dates_item->caption, 40) }}
-                            
-                            /h4>
+                        </h4>
                         <h5 class="ubuntu fz-12 theme-color mt-10 r-divider">Date: <span
                                 class="blue-color">{{ $dates_item->page_keyword }}</span>
                             @if ($dates_item->icon_image_caption)
