@@ -29,7 +29,7 @@
 
                                     {{ Str::limit($home_commentaries_item->caption, 36) }}
                                   </h5>
-                                <p class="lh-22 mt-10"> {!! Str::limit($home_commentaries_item->short_content, 100) !!}</p>
+                                <p class="lh-22 mt-10"> {!! Str::limit($home_commentaries_item->short_content, 80) !!}</p>
                                 <a class="fz-14 mt-10 btn-green-br" href="{{ route('single_career', $home_commentaries_item->nav_name) }}">Read More</a>
                             </div>
                         </div>
