@@ -88,7 +88,7 @@
 
 
                         <p class="lh-26 mt-20">
-                            {!! Str::limit($dates_item->short_content, 80) !!}
+                            {!! Str::limit($dates_item->short_content, 100) !!}
                         </p>
 
 

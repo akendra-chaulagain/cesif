@@ -59,7 +59,7 @@
                         @else
                         @endif
                         </h5>
-                        <p class="lh-26 mt-20">{!! Str::limit($allData_item->short_content, 130) !!}</p>
+                        <p class="lh-26 mt-20">{!! Str::limit($allData_item->short_content, 100) !!}</p>
                         <div class="mt-20">
                             <a href="{{ route('single_career', $allData_item->nav_name) }}" class="btn-green-br">Read
                                 More</a>
