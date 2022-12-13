@@ -111,6 +111,7 @@ Route::get('/all/{dateslug}', [HomeController::class, 'Alll_Month_Page'])->name(
 Route::get('/all-data/{dataslug}', [HomeController::class, 'get_all_Acc_date'])->name('all-data');
 Route::get('/all_data/{dataslug}', [HomeController::class, 'All_cat_data'])->name('all-data');
 
+Route::get('/monthly_all/{dataslug}', [HomeController::class, 'get_all_Acc_Monthly'])->name('data_all');
 
 
 
