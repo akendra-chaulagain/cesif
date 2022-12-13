@@ -18,6 +18,17 @@ class HomeController extends Controller
 
 
 
+        // $all_nav_data = Navigation::query()
+        //     ->orWhere('page_type', 'Monthly Analysis')
+        //     ->orWhere('page_type', 'Commentaries')
+        //     ->orWhere('page_type', 'News Digest')
+        //     ->orWhere('page_type', 'Proceeding Report')
+        //     ->orWhere('page_type', 'Research Reports')
+        //     ->orWhere('page_type', 'Publication')
+        //     ->orderBy('page_title', 'desc')
+        //     ->get();
+        //     return $all_nav_data;
+
         $date = Date::all()->where('nav_category', 'Main');
 
 
@@ -413,6 +424,7 @@ class HomeController extends Controller
         } elseif ($subcategory_type == "Group") {
             $themic_parent = Navigation::find($subcategory_id);
             $themic_parent_sub = $themic_parent->childs;
+            // return $themic_parent_sub
 
 
 
