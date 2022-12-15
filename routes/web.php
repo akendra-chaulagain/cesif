@@ -113,6 +113,11 @@ Route::get('/all_data/{dataslug}', [HomeController::class, 'All_cat_data'])->nam
 
 Route::get('/monthly_all/{dataslug}', [HomeController::class, 'get_all_Acc_Monthly'])->name('data_all');
 
+Route::get('/team-details/{dataslug}', [HomeController::class, 'Team_details'])->name('team-details');
+
+
+
+// Team_details
 
 
 // get_all_Acc_date

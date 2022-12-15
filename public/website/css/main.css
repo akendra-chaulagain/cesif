@@ -1566,9 +1566,9 @@ a.btn-prime:hover{
     line-height: 45px;
     padding: 0 50px;
 }
+
+
 /*== STAF MEMBER ==*/
-.staff-member{    
-}
 .staff-member img{
     max-height: 350px;
     min-height: 350px;
@@ -1619,10 +1619,18 @@ a.btn-prime:hover{
     border-width: 41px 147px;
     z-index: 3;
 }
+.staff-hover h6 a{
+    font-size: 14px;
+    font-weight: bold !important;
+    color: #242f55;
+}
+.staff-hover h6 a:hover{
+    color: rgb(243 124 122 / 80%);
+}
 .staff-social{
     position: absolute;
     top: -29px;
-    z-index: 5;
+    z-index: 99;
     left: 5px;
 }
 .staff-social > li{
@@ -1684,6 +1692,24 @@ a.btn-prime:hover{
     background-color: #000000;
     border: 1px solid #555555;
 }
+.individual-staff-profile img{
+    max-height: 300px;
+    min-height: 300px;
+    margin: 0 auto;
+}
+.individual-staff{
+    background-color: #f3f3f3;
+    padding: 30px;
+}
+.individual-staff .staff-social{
+    position: relative;
+    top: 0;
+}
+.individual-staff .staff-social > li > a{
+    position: relative;
+    top: 0;
+}
+
 /*== Our Help==*/
 .our-help{
     padding: 150px 0;
@@ -3159,3 +3185,19 @@ p.quote{
         color: #212529 !important;
         opacity: 0.5 !important;
     }
+
+    .monthly_data_analysis{
+        display: flex;
+        line-height: 18px;
+    }
+
+
+    /* @media only screen and (max-width: 990px) {
+      .monthly_data_analysis{
+        display: block;
+        line-height: 18px;
+        margin-bottom: 10px;
+        
+    }
+} */
+   

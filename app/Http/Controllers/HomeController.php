@@ -17,17 +17,7 @@ class HomeController extends Controller
     {
 
 
-
-        // $all_nav_data = Navigation::query()
-        //     ->orWhere('page_type', 'Monthly Analysis')
-        //     ->orWhere('page_type', 'Commentaries')
-        //     ->orWhere('page_type', 'News Digest')
-        //     ->orWhere('page_type', 'Proceeding Report')
-        //     ->orWhere('page_type', 'Research Reports')
-        //     ->orWhere('page_type', 'Publication')
-        //     ->orderBy('page_title', 'desc')
-        //     ->get();
-        //     return $all_nav_data;
+        // $monthly_data = Navigation::find($mainitem_item->id)->where('page_type','Monthly Analysis');
 
         $date = Date::all()->where('nav_category', 'Main');
 
@@ -526,7 +516,7 @@ class HomeController extends Controller
         }
         $global_setting = GlobalSetting::all()->first();
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
-        return view("website.monthly_data_acco_to_caption")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "monthly_dates" => $monthly_dates, 'dates_title' => $dates_title, 'date' => $date, 'monthly_dates_parent'=> $monthly_dates_parent]);
+        return view("website.monthly_data_acco_to_caption")->with(["partners" => $partners,  'menus' => $menus, 'global_setting' => $global_setting, "monthly_dates" => $monthly_dates, 'dates_title' => $dates_title, 'date' => $date, 'monthly_dates_parent' => $monthly_dates_parent]);
     }
 
 
@@ -550,6 +540,31 @@ class HomeController extends Controller
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
         return view("website.all_months_data")->with(["partners" => $partners, 'career_details' => $career_details, 'menus' => $menus, 'global_setting' => $global_setting, 'allData' => $allData, 'page_type' => $page_type]);
     }
+
+
+
+
+
+
+
+    public function Team_details($slug)
+    {
+        // return $slug;
+        $career_details = Navigation::all()->where('nav_name', $slug)->first();
+        
+        // return $career_details;
+        if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
+            $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
+            $partners = Navigation::query()->where('parent_page_id', $partners_id)->latest()->get();
+            //return $partners;
+        } else {
+            $partners = null;
+        }
+        $global_setting = GlobalSetting::all()->first();
+        $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
+        return view("website.team_details")->with(["partners" => $partners, 'career_details' => $career_details, 'menus' => $menus, 'global_setting' => $global_setting, ]);
+    }
+
 
 
 

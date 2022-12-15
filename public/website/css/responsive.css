@@ -647,9 +647,32 @@
 		margin-top: 20px;
 	}
 	.themetic-area .p-filter-nav > a{
-		padding-right: 20px;
+		/* padding-right: 20px; */
 		line-height: 36px;
 	}
+	.themetic-area .p-filter-nav > a{
+    border: 1px solid #cdcaca;
+    padding: 6px 6px 6px 5px;
+    border-radius: 3px;
+
+	}
+}
+
+@media only screen and (max-width: 990px) {
+      .monthly_data_analysis{
+        display: block;
+        line-height: 18px;
+        margin-bottom: 10px;
+    }
+	 .monthly_data_analysis a{
+     border: 1px solid #cdcaca;
+    padding: 6px 6px 6px 5px;
+    border-radius: 3px;
+	line-height: 40px;
+    }
+
+
+
 }
 @media (min-width: 761px) and (max-width: 990px){
 	.top-contact-details .col-md-4{
