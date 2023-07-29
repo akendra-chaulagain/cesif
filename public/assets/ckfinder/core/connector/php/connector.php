@@ -84,6 +84,7 @@ $config['Plugins'] = array();
  */
 if (!empty($_GET['command']) && $_GET['command'] == 'FileUpload' && !empty($_POST)) {
 	foreach ($_POST as $key => $val) {
+        // return "hi";
 		if (strpos($key, "ckfcookie_") === 0)
 			$_COOKIE[str_replace("ckfcookie_", "", $key)] = $val;
 	}

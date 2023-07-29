@@ -24,12 +24,14 @@ class AdminController extends Controller
 	public function change_profile()
 	{
 		$change_profile = Admin::findOrfail(1);
+		// return $change_profile;
 		return view('admin.change_profile', compact('change_profile'));
 	}
 
 	public function update_profile(Request $request)
 	{
 		$this->validate($request, [
+			// 'id' => default,		
 			'name' => 'required',
 			'email' => 'required|email',
 			'curr_password' => 'required',

@@ -48,8 +48,8 @@ class NavigationController extends Controller
             'nav_name' => 'required|min:2',
             'alias' => 'required|unique:navigations',
             'caption' => 'required',
-            'icon_image' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'banner_image' => 'mimes:jpeg,png,jpg,gif,svg|max:10240'
+            'icon_image' => 'mimes:jpeg,png,jpg,gif,svg',
+            'banner_image' => 'mimes:jpeg,png,jpg,gif,svg|max:1024'
 
         ]);
 
@@ -75,12 +75,24 @@ class NavigationController extends Controller
             $img_file->move($destinationPath, $data['featured_image']);
         }
 
+        // if ($request->hasFile('banner_image')) {
+        //     $banner_file = $request->file('banner_image');
+        //     $data['banner_image'] = "/uploads/banner_image/" . time() . '_' . $banner_file->getClientOriginalName();
+        //     $destinationPath = public_path('uploads/banner_image');
+        //     $banner_file->move($destinationPath, $data['banner_image']);
+        // }
+
         if ($request->hasFile('banner_image')) {
             $banner_file = $request->file('banner_image');
             $data['banner_image'] = "/uploads/banner_image/" . time() . '_' . $banner_file->getClientOriginalName();
             $destinationPath = public_path('uploads/banner_image');
             $banner_file->move($destinationPath, $data['banner_image']);
         }
+
+
+
+
+
 
         if ($request->hasFile('attachment')) {
             $attachment_file = $request->file('attachment');
@@ -127,8 +139,8 @@ class NavigationController extends Controller
         $this->validate($request, [
             'nav_name' => 'required|min:3',
             'caption' => 'required',
-            'icon_image' => 'mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'banner_image' => 'mimes:jpeg,png,jpg,gif,svg|max:10240'
+            'icon_image' => 'mimes:jpeg,png,jpg,gif,svg,JPG',
+            'banner_image' => 'mimes:jpeg,png,jpg,gif,svg|max:1024'
 
         ]);
         $page_title = $request['page_title'];

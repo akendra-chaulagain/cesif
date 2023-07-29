@@ -15,23 +15,13 @@
         $seo = $job;
     }
     
-    $father = [];
-    $commentaries = App\Models\Navigation::query()
-        ->where('page_type', 'Commentaries')
-        ->orWhere('page_type', 'News Digest')
-        ->orWhere('page_type', 'Monthly Analysis')
-        ->get();
-    // return $commentaries;
-    foreach ($commentaries as $index => $value) {
-        $p = $value->parents;
     
-        $father[$p->caption] = $p;
-    }
+    
     
 @endphp
 
 
-{{-- @dd($father) --}}
+
 
 
 
@@ -77,195 +67,426 @@
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="{{ '/uploads/icons/' . $global_setting->favicon }}" type="image/png">
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500&amp;family=Poppins:ital,wght@0,300;0,500;0,700;1,300;1,400&amp;display=swap"
+        rel="stylesheet">
+    <!-- fontawsome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
-    <link rel="apple-touch-icon" href="/website/img/apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="/website/css/bootstrap.css">
-    <link rel="stylesheet" href="/website/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/website/css/owl.carousel.css">
-    <link rel="stylesheet" href="/website/css/owl.theme.css">
-    <link rel="stylesheet" href="/website/css/animate.css">
-    <link rel="stylesheet" href="/website/css/normalize.css">
-    <link rel="stylesheet" href="/website/css/main.css">
-    <link rel="stylesheet" href="/website/css/responsive.css">
-    <script src="/website/js/modernizr-2.8.3.min.js"></script>
+    <link href="/website/css/styles3875.css?1fcca2a2c42e9d47a3eb" rel="stylesheet">
+
+
+
+
 </head>
 
 <body>
-    <header>
-        <div class="main-nav">
-            <div class="container">
-                <div class="col-md-3 col-sm-3 text-center logo">
-                    <a href="/">
-                        <img class="img-responsive" src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
-                            alt="logo">
-                    </a>
-                </div>
-                <div class="col-md-9 col-sm-9">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+
+
+
+
+    <header class="bg-light">
+        <!-- Navbar  Top-->
+        <div class="topbar d-none d-sm-block">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="topbar-left">
+                            <div class="timer_topbar">
+                                {{-- Monday, March 22, 2020 --}}
+                                <!-- Nepali Time Start -->
+
+
+                                {{-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php" width="185" height="55"></iframe> --}}
+
+
+                                <div class="nepali-timer" id="nepaliTimer">
+                                    <!-- Nepali time and date will be displayed here -->
+                                </div>
+
+
+
+
+
+                                <!-- Nepali Time End -->
+                            </div>
                         </div>
-                        <div id="navbar" class="navbar-collapse collapse no-margin no-padding">
+                    </div>
+                    <div class="col-sm-12 col-md-7">
+                        <div class="list-unstyled topbar-right">
 
-                            <ul class="nav navbar-nav">
-                                <li @if (!isset($slug_detail))  @endif><a href="/">Home</a></li>
+                            <ul class="topbar-sosmed">
+                             
 
+
+
+                                <li> <a href="{{ $global_setting->facebook ?? '' }}"> <i
+                                            class="fa-brands fa-facebook"></i>
+                                    </a></li>
+                                <li> <a href="{{ $global_setting->twitter ?? '' }}"><i
+                                            class="fa-brands fa-twitter"></i> </i>
+                                    </a></li>
+                                <li> <a href="{{ $global_setting->linkedin ?? '#' }}"><i
+                                            class="fa-brands fa-instagram"></i> </a>
+                                </li>
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Top  -->
+
+        <!-- Navbar  -->
+        <!-- Navbar menu  -->
+        <div class="navigation-wrap navigation-shadow bg-white">
+            <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
+                <div class="container">
+                    <div class="offcanvas-header">
+                        <div data-toggle="modal" data-target="#modal_aside_right" class="btn-md">
+                            <span class="navbar-toggler-icon"></span>
+                        </div>
+                    </div>
+                    <figure class="mb-0 mx-auto">
+                        <a href="/">
+                            {{-- <img src="/website/images/logo1.png" alt="" class="img-fluid logo"> --}}
+                            <img src="/uploads/icons/{{ $global_setting->site_logo }}" alt="_logo"
+                                     class="img-fluid logo"/>
+                        </a>
+                    </figure>
+
+                </div>
+            </nav>
+
+
+
+            <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
+                <div class="container">
+
+                    <div class="collapse navbar-collapse justify-content-between" id="main_nav99">
+
+                        <ul class="navbar-nav ml-auto ">
+                            <li class="nav-item"><a class="nav-link" href="/">होमपेज</a></li>
+
+                            @foreach ($menus as $menu)
+                                @php $submenus = $menu->childs; @endphp
+                                <li class="  @if ($menu->nav_name == 'प्रदेश') nav-item dropdown @else @endif  "
+                                    @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif>
+                                    <a class="nav-link active 
+                                        @if ($menu->nav_name == 'प्रदेश') dropdown-toggle  @else    @endif  " 
+                                        {{-- data-toggle="dropdown" --}}
+                                        @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
+                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}
+
+                                    </a>
+
+                                    @if ($submenus->count() > 0)
+                                        <ul class="dropdown-menu dropdown-menu-left">
+                                            @foreach ($submenus as $sub)
+                                                <li>
+
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
+
+
+
+
+                        </ul>
+
+
+
+
+
+                        <!-- Search content bar.// -->
+                    </div> <!-- navbar-collapse.// -->
+                </div>
+            </nav>
+        </div>
+        <!-- End Navbar menu  -->
+
+        <!-- Navbar sidebar menu  -->
+
+        
+
+        {{-- fetures news --}}
+
+        <div id="modal_aside_right" class="modal fixed-left fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-aside" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="widget__form-search-bar  ">
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <input class="form-control border-secondary border-right-0 rounded-0"
+                                        value="" placeholder="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <nav class="list-group list-group-flush">
+
+
+                            {{-- <ul class="navbar-nav ">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle  text-dark" href="#"
+                                        data-toggle="dropdown">
+                                        Pages </a>
+                                    <ul class="dropdown-menu animate fade-up">
+                                        <li><a class="dropdown-item icon-arrow  text-dark" href="#"> Blog </a> </li>
+                                    </ul>
+                                </li>
+                            </ul> --}}
+
+
+                            <ul class="navbar-nav ">
                                 @foreach ($menus as $menu)
                                     @php $submenus = $menu->childs; @endphp
+                                    <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif>
 
-
-
-
-                                    <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
-                                            class="dropdown-toggle"
-                                            @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
-                                            role="button" aria-haspopup="true" aria-expanded="false"
+                                        <a class="nav-link  text-dark 
+                                        @if ($menu->nav_name == 'प्रदेश') dropdown-toggle  href="#" data-toggle="dropdown"  @else   @endif "  
                                             @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
-                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}
-                                            @if ($menu->nav_name == 'career')
-                                            @else
-                                                <span class="caret"></span>
-                                            @endif
-
+                                    {{ route('category', $menu->nav_name) }} " @endif>{{ $menu->caption }}
 
                                         </a>
 
                                         @if ($submenus->count() > 0)
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu animate fade-up">
                                                 @foreach ($submenus as $sub)
                                                     <li>
-                                                        <a
+
+                                                        <a class="dropdown-item icon-arrow  text-dark"
                                                             href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
                                                     </li>
                                                 @endforeach
-
-
-                                                @if ($menu->id == 2669)
-                                                    @foreach ($father as $father_item)
-                                                        <li>
-                                                            <a href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
-
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                @else
-                                                @endif
                                             </ul>
                                         @endif
                                     </li>
                                 @endforeach
-                                <li><a href="/contact">Contact</a></li>
+
+
+
+
                             </ul>
-                        </div>
-                        <!--/.nav-collapse -->
-                    </nav>
 
 
 
 
+
+
+                        </nav>
+                    </div>
 
                 </div>
-            </div>
-        </div>
+            </div> <!-- modal-bialog .// -->
+        </div> <!-- modal.// -->
+        <!-- End Navbar sidebar menu  -->
+        <!-- End Navbar  -->
     </header>
+
 
 
 
 
     @yield('content')
 
-    <footer>
-        <div class="upper-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3">
-                        <img class="img-responsive mt-60"src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
-                            alt="footer_icon">
+
+    <section class="wrapper__section p-0">
+        <div class="wrapper__section__components">
+            <footer>
+                <div class="wrapper__footer bg__footer-dark pb-0">
+                    <div class="container">
+                        <div class="row">
+                            {{-- first row footer --}}
+                            <div class="col-md-3">
+                                <div class="widget__footer">
+                                    <div class="dropdown-footer ">
+                                        {{-- <h4 class="footer-title">
+                                            world
+                                            <span class="fa fa-angle-down"></span>
+                                        </h4> --}}
+
+                                    </div>
+
+
+                                    <ul class="list-unstyled option-content  footer_individual_item">
+                                        <li> <a href="/">होमपेज</a>
+                                        </li>
+                                        @foreach ($menus as $key => $menu)
+                                            @if ($key == 3)
+                                            @break
+
+                                            ;
+                                        @endif
+                                        <li> <a
+                                                href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+
+
+
+                            </div>
+                        </div>
+
+                        {{-- second row footer --}}
+                        <div class="col-md-3">
+                            <div class="widget__footer">
+                                <div class="dropdown-footer ">
+
+                                </div>
+
+                                <ul class="list-unstyled option-content  footer_individual_item">
+                                    @foreach ($menus as $key => $menu)
+                                        @if ($key > 6)
+                                            <li> <a href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}
+                                                </a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+                        {{-- footer details --}}
+                        <div class="col-md-3">
+                            <div class="widget__footer">
+                                <div class="dropdown-footer ">
+
+                                </div>
+
+                                <ul class="list-unstyled option-content  footer_individual_item">
+
+
+                                    <li> <a href="#"><i class="fa-regular fa-envelope"></i> </i>
+                                            {{ $global_setting->site_email }}</a></li>
+                                    <li> <a href="#"><i class="fa-solid fa-phone"></i>
+                                            {{ $global_setting->phone }}</a></li>
+                                    <li> <a href="#"> <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                            {{ $global_setting->website_full_address }}{{ $global_setting->address_ne }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {{-- footer details --}}
+                        <div class="col-md-3">
+                            <div class="widget__footer">
+                                <div class="dropdown-footer ">
+
+                                </div>
+
+                                <ul class="list-unstyled option-content  footer_individual_item">
+
+                                    <li> <a href="{{ $global_setting->facebook ?? '' }}"> <i
+                                                class="fa-brands fa-facebook"></i>
+                                            Facebook</a></li>
+                                    <li> <a href="{{ $global_setting->twitter ?? '' }}"><i
+                                                class="fa-brands fa-twitter"></i> </i>
+                                            Twitter</a></li>
+                                    <li> <a href="{{ $global_setting->linkedin ?? '#' }}"><i
+                                                class="fa-brands fa-instagram"></i> Instagram</a>
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
                     </div>
-                    <div class="col-md-6 col-sm-3">
-                        {!! $global_setting->page_keyword !!}
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                        <h6 class="text-uppercase text-bold gray-e8 bb display-ib">keep in touch</h6>
-                        <span class="ubuntu fz-14 black display-block mt-30 lh-24">Address :
-                            {{ $global_setting->website_full_address }} {{ $global_setting->address_ne }}</span>
-                        <span class="ubuntu fz-14 black display-block lh-24 contact-info">Phone : <a
-                                href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>, <br><a
-                                href="tel:015437508"> {{ $global_setting->phone_ne }}</a> </span>
-                        <span class="ubuntu fz-14 black display-block lh-24 contact-info">Email : <a
-                                href="mailto:info@cesifnepal.org">{{ $global_setting->site_email }}</a></span>
-                        <div class="footer-social list-inline">
-                            <a target="_blank" href="{{ $global_setting->facebook }}"><i
-                                    class="fa fa-facebook"></i></a>
-                            <a target="_blank" href="{{ $global_setting->twitter }}"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a target="_blank" href="{{ $global_setting->linkedin }}"><i
-                                    class="fa fa-instagram"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Footer bottom -->
+            <div class="wrapper__footer-bottom bg__footer-dark">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="border-top-1 bg__footer-bottom-section">
+
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <span>
+                                            Copyright © 2023
+                                        </span>
+                                    </li>
+                                </ul>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <div class="lower-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="ubuntu fz-12 text-uppercase text-medium">Copyright ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> CESIF Nepal All Rights Reserved. Developed By <a
-                                href="http://radiantnepal.com/" target="_blank">Radiant Infotech Nepal</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer>
+        </footer>
+    </div>
+</section>
 
 
 
 
 
-    <!--jQuery, Bootstrap and other vendor JS-->
+<!--jQuery, Bootstrap and other vendor JS-->
+<script src="/website/js/index.bundle3875.js?1fcca2a2c42e9d47a3eb"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+{{-- nepali time --}}
+
+<script src="https://unpkg.com/nepali-date-converter@1.1.2/dist/nepali-date-converter.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nepali-date/dist/nepali-date.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+@if (Session::has('contact'))
     <script>
-        window.jQuery || document.write('<script src="/website/js/jquery-1.11.3.min.js"><\/script>')
+        Swal.fire(
+            'Thank You !',
+            "Form submitted sucessfully!!!",
+            'success'
+        )
     </script>
-    <script src="/website/js/bootstrap.min.js"></script>
-    <script src="/website/js/owl.carousel.js"></script>
-    <script src="/website/js/jquery.countdown.min.js"></script>
-    <script src="/website/js/jquery.mixitup.js"></script>
-
-    @yield('custom_js')
-    <script src="/website/js/Chart.min.js"></script>
-    <script src="/website/js/main.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
-    @if (Session::has('contact'))
-        <script>
-            Swal.fire(
-                'Thank You !',
-                "Form submitted sucessfully!!!",
-                'success'
-            )
-        </script>
-    @endif
+@endif
 </body>
 
 </html>

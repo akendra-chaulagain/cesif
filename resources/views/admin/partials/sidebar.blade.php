@@ -35,9 +35,9 @@
               <li class="{{Request::is('admin/global-setting')?'active':''}}  treeview"><a
                         href="{{url('/admin/global-setting')}}"><i class="fa fa-cog"></i> <span>Global Setup</span></a>
             </li>
-            <li class="{{Request::is('admin/applied-job-list')?'active':''}}  treeview"><a
+            {{-- <li class="{{Request::is('admin/applied-job-list')?'active':''}}  treeview"><a
                         href="{{url('/admin/applied-job-list')}}"><i class="fa fa-cog"></i> <span>Message</span></a>
-            </li>
+            </li> --}}
             <!----------end------------>
         </ul>
     </section>

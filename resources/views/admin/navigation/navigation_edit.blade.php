@@ -296,12 +296,12 @@
                     <input class="form-control" type="file" id="banner_file" name="banner_image">
                 </div>
 
-                <div class="form-group col-md-12">
+                {{-- <div class="form-group col-md-12">
                     <label for="page_title">Posted Month</label>
                     <input class="form-control" type="month" id="page_title" name="page_title"
                         placeholder="Page Title" value="{{ $navigation->page_title }}">
 
-                </div>
+                </div> --}}
 
                 <div class="form-group col-md-12">
                     <label for="page_keyword">Posted Date</label>
@@ -309,7 +309,7 @@
                         placeholder="Page Keywords" value="{{ $navigation->page_keyword }}">
                 </div>
 
-                <div class="form-group col-md-12">
+                {{-- <div class="form-group col-md-12">
                     <label for="extra_one">Facebook link</label>
                     <input class="form-control" type="text" id="extra_one" name="extra_one"
                         placeholder="facebook link" value="{{ $navigation->extra_one }}">
@@ -326,7 +326,7 @@
                     <label for="extra_three">Instagram link</label>
                     <input class="form-control" type="text" id="extra_three" name="extra_three"
                         placeholder="instagram link" value="{{ $navigation->extra_three }}">
-                </div>
+                </div> --}}
 
 
 
@@ -591,6 +591,7 @@
 </script>
 
 <script>
+
     CKEDITOR.replace('long_content', {
         toolbar: [{
                 name: 'document',
@@ -657,8 +658,13 @@
         filebrowserBrowseUrl: '{{ asset('assets/ckfinder/ckfinder.html') }}',
         filebrowserImageBrowseUrl: '{{ asset('assets/ckfinder/ckfinder.html?type=Images') }}',
         filebrowserFlashBrowseUrl: '{{ asset('assets/ckfinder/ckfinder.html?type=Flash') }}',
-        filebrowserUploadUrl: '{{ asset('assetsckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-        filebrowserImageUploadUrl: '{{ asset('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        
+        
+
+        filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadMethod: 'form',
+
+        filebrowserImageUploadUrl: '{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}',
         filebrowserFlashUploadUrl: '{{ asset('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
 
     });
@@ -735,4 +741,11 @@
 
     });
 </script>
+
+
+// CKEDITOR.replace('long_content', {
+//             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+//             filebrowserUploadMethod: 'form'
+//         });
+
 @endsection

@@ -14,8 +14,12 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ContactController;
+use Cloudinary\Api\Upload\UploadApi;
+use App\Http\Controllers\PhotoController;
+
 
 Auth::routes();
+Route::post('/ckeditor/upload', 'CkeditorController@upload')->name('ckeditor.upload');
 
 Route::get('/', 'HomeController@index');
 Route::prefix('admin')->group(function () {
@@ -111,7 +115,7 @@ Route::get('/all/{dateslug}', [HomeController::class, 'Alll_Month_Page'])->name(
 Route::get('/all-data/{dataslug}', [HomeController::class, 'get_all_Acc_date'])->name('all-data');
 Route::get('/all_data/{dataslug}', [HomeController::class, 'All_cat_data'])->name('all-data');
 
-Route::get('/monthly_all/{dataslug}', [HomeController::class, 'get_all_Acc_Monthly'])->name('data_all');
+Route::get('/monthly_all/{dataslug}', [HomeController::class, 'category_all'])->name('data_all');
 
 Route::get('/team-details/{dataslug}', [HomeController::class, 'Team_details'])->name('team-details');
 
@@ -137,3 +141,12 @@ Route::POST('contact/store', [ContactController::class, 'ContactStore'])->name('
 
 Route::get('/{slug}', [HomeController::class, 'category'])->name('category');
 Route::get('/{category}/{subcategory}', [HomeController::class, 'subcategory'])->name('subcategory');
+
+
+// for cloudinary
+// Route::get('/upload', 'FileUploadController@showUploadForm');
+// Route::post('/upload', 'FileUploadController@storeUploads');
+
+
+Route::post('/upload-photo', [PhotoController::class, 'upload']);
+
